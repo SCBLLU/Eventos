@@ -22,6 +22,8 @@ namespace Eventos.Clases
         {
             using (var bd = new EventosContext())
             {
+                var eventosRelacionados = bd.Eventos.Where(e => e.SalaId == s.SalaId).ToList();
+                bd.Eventos.RemoveRange(eventosRelacionados);
                 bd.Salas.Remove(s);
                 bd.SaveChanges();
             }

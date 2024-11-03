@@ -30,20 +30,39 @@ namespace Eventos.Formularios.Administrador
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Manejar el evento de clic en una celda si es necesario
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                txtNombre.Text = dataGridView1.CurrentRow.Cells["NombreSala"].Value.ToString();
+                numCapacidad.Value = int.Parse(dataGridView1.CurrentRow.Cells["Capacidad"].Value.ToString());
+                txtUbicacion.Text = dataGridView1.CurrentRow.Cells["Ubicacion"].Value.ToString();
+                txtCaracteristicas.Text = dataGridView1.CurrentRow.Cells["Caracteristicas"].Value.ToString();
+                txtID.Text = dataGridView1.CurrentRow.Cells["SalaId"].Value.ToString();
+            }
         }
 
         private void btnCrear_Click(object sender, EventArgs e)
         {
-            var sala = new Sala
+
+            if (string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrEmpty(txtUbicacion.Text) || string.IsNullOrEmpty(txtCaracteristicas.Text))
             {
-                NombreSala = txtNombre.Text,
-                Capacidad = int.Parse(numCapacidad.Text),
-                Ubicacion = txtUbicacion.Text,
-                Caracteristicas = txtCaracteristicas.Text
-            };
-            crudSalas.CrearSala(sala);
-            CargarSalas();
+                MessageBox.Show("Por favor, llene todos los campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            DialogResult dialogResult = MessageBox.Show("¿Está seguro de que desea crear esta sala?", "Crear Sala", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                var sala = new Sala
+                {
+                    NombreSala = txtNombre.Text,
+                    Capacidad = (int)numCapacidad.Value,
+                    Ubicacion = txtUbicacion.Text,
+                    Caracteristicas = txtCaracteristicas.Text
+                };
+                crudSalas.CrearSala(sala);
+                CargarSalas();
+                limpiarCampos();
+            }
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -53,7 +72,23 @@ namespace Eventos.Formularios.Administrador
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtID.Text))
+            {
+                MessageBox.Show("Por favor, seleccione una sala para eliminar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
+            DialogResult dialogResult = MessageBox.Show("¿Está seguro de que desea eliminar esta sala?", "Eliminar Sala", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                var sala = new Sala
+                {
+                    SalaId = int.Parse(txtID.Text)
+                };
+                crudSalas.EliminarSala(sala);
+                CargarSalas();
+                limpiarCampos();
+            }
         }
 
         private void CargarSalas()
@@ -68,6 +103,14 @@ namespace Eventos.Formularios.Administrador
             }
         }
 
+        private void limpiarCampos()
+        {
+            txtNombre.Text = "";
+            numCapacidad.Value = 0;
+            txtUbicacion.Text = "";
+            txtCaracteristicas.Text = "";
+            txtID.Text = "";
+        }
 
     }
 }

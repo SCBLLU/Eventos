@@ -43,6 +43,7 @@
             btnEliminar = new Button();
             btnEditar = new Button();
             btnCrear = new Button();
+            txtID = new TextBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel2.SuspendLayout();
@@ -65,12 +66,14 @@
             dataGridView1.Dock = DockStyle.Fill;
             dataGridView1.Location = new Point(0, 0);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(747, 255);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // panel2
             // 
+            panel2.Controls.Add(txtID);
             panel2.Controls.Add(txtUbicacion);
             panel2.Controls.Add(label2);
             panel2.Controls.Add(numCapacidad);
@@ -196,6 +199,13 @@
             btnCrear.UseVisualStyleBackColor = true;
             btnCrear.Click += btnCrear_Click;
             // 
+            // txtID
+            // 
+            txtID.Location = new Point(493, 17);
+            txtID.Name = "txtID";
+            txtID.Size = new Size(41, 23);
+            txtID.TabIndex = 13;
+            // 
             // Salas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -233,5 +243,6 @@
         private Label label3;
         private TextBox txtNombre;
         private DataGridView dataGridView1;
+        private TextBox txtID;
     }
 }
