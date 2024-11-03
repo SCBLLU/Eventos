@@ -17,7 +17,13 @@ public partial class Evento
 
     public int? SalaId { get; set; }
 
+    public int? ClienteId { get; set; }
+
     public virtual ICollection<AsignacionesEmpleado> AsignacionesEmpleados { get; set; } = new List<AsignacionesEmpleado>();
+
+    public virtual Cliente? Cliente { get; set; }
+
+    public virtual ICollection<Factura> Facturas { get; set; } = new List<Factura>();
 
     public virtual Sala? Sala { get; set; }
 

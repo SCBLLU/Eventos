@@ -42,7 +42,7 @@
             Contenedor = new Panel();
             MenuLateral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            Contenedor.SuspendLayout();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // MenuLateral
@@ -73,6 +73,7 @@
             btnInformes.Text = "Informes";
             btnInformes.TextAlign = ContentAlignment.MiddleLeft;
             btnInformes.UseVisualStyleBackColor = true;
+            btnInformes.Click += btnInformes_Click;
             // 
             // btnPaquetes
             // 
@@ -85,6 +86,7 @@
             btnPaquetes.Text = "Paquetes";
             btnPaquetes.TextAlign = ContentAlignment.MiddleLeft;
             btnPaquetes.UseVisualStyleBackColor = true;
+            btnPaquetes.Click += btnPaquetes_Click;
             // 
             // btnSalas
             // 
@@ -97,6 +99,7 @@
             btnSalas.Text = "Salas";
             btnSalas.TextAlign = ContentAlignment.MiddleLeft;
             btnSalas.UseVisualStyleBackColor = true;
+            btnSalas.Click += btnSalas_Click;
             // 
             // btnEmpleado
             // 
@@ -135,6 +138,7 @@
             btnSalir.Text = "Cerrar Sesión";
             btnSalir.TextAlign = ContentAlignment.MiddleLeft;
             btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.Click += btnSalir_Click;
             // 
             // Logo
             // 
@@ -149,15 +153,17 @@
             // 
             pictureBox1.Anchor = AnchorStyles.None;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(69, 47);
+            pictureBox1.Location = new Point(71, 3);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(474, 261);
+            pictureBox1.Size = new Size(444, 57);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             // 
             // panel1
             // 
             panel1.BackColor = SystemColors.ControlDark;
+            panel1.Controls.Add(pictureBox1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(194, 0);
             panel1.Name = "panel1";
@@ -167,7 +173,6 @@
             // Contenedor
             // 
             Contenedor.BackColor = Color.CornflowerBlue;
-            Contenedor.Controls.Add(pictureBox1);
             Contenedor.Dock = DockStyle.Fill;
             Contenedor.Location = new Point(194, 74);
             Contenedor.Name = "Contenedor";
@@ -188,7 +193,7 @@
             Load += Menu_Load;
             MenuLateral.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            Contenedor.ResumeLayout(false);
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
