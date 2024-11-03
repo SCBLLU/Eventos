@@ -59,7 +59,7 @@
             MenuLateral.Dock = DockStyle.Left;
             MenuLateral.Location = new Point(0, 0);
             MenuLateral.Name = "MenuLateral";
-            MenuLateral.Size = new Size(194, 458);
+            MenuLateral.Size = new Size(194, 518);
             MenuLateral.TabIndex = 0;
             // 
             // btnInformes
@@ -130,7 +130,7 @@
             // btnSalir
             // 
             btnSalir.Dock = DockStyle.Bottom;
-            btnSalir.Location = new Point(0, 408);
+            btnSalir.Location = new Point(0, 468);
             btnSalir.Name = "btnSalir";
             btnSalir.Padding = new Padding(10, 0, 0, 0);
             btnSalir.Size = new Size(194, 50);
@@ -153,7 +153,7 @@
             // 
             pictureBox1.Anchor = AnchorStyles.None;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(71, 3);
+            pictureBox1.Location = new Point(145, 3);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(444, 57);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -167,7 +167,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(194, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(614, 74);
+            panel1.Size = new Size(763, 74);
             panel1.TabIndex = 2;
             // 
             // Contenedor
@@ -176,14 +176,14 @@
             Contenedor.Dock = DockStyle.Fill;
             Contenedor.Location = new Point(194, 74);
             Contenedor.Name = "Contenedor";
-            Contenedor.Size = new Size(614, 384);
+            Contenedor.Size = new Size(763, 444);
             Contenedor.TabIndex = 3;
             // 
             // Menu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(808, 458);
+            ClientSize = new Size(957, 518);
             Controls.Add(Contenedor);
             Controls.Add(panel1);
             Controls.Add(MenuLateral);
