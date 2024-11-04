@@ -17,9 +17,9 @@ public partial class Empleado
 
     public string? Telefono { get; set; }
 
-    public virtual ICollection<AsignacionesEmpleado> AsignacionesEmpleados { get; set; } = new List<AsignacionesEmpleado>();
+    public string NombreUsuario { get; set; } = null!;
 
-    public virtual ICollection<Tarea> Tareas { get; set; } = new List<Tarea>();
+    public string Contraseña { get; set; } = null!;
 
-    public virtual ICollection<Usuario> Usuarios { get; set; } = new List<Usuario>();
+    public DateTime? FechaCreacion { get; set; }
 }

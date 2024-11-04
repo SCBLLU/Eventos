@@ -19,13 +19,13 @@ public partial class Evento
 
     public int? ClienteId { get; set; }
 
-    public virtual ICollection<AsignacionesEmpleado> AsignacionesEmpleados { get; set; } = new List<AsignacionesEmpleado>();
+    public int? PaqueteId { get; set; }
 
     public virtual Cliente? Cliente { get; set; }
 
     public virtual ICollection<Factura> Facturas { get; set; } = new List<Factura>();
 
-    public virtual Sala? Sala { get; set; }
+    public virtual Paquete? Paquete { get; set; }
 
-    public virtual ICollection<Tarea> Tareas { get; set; } = new List<Tarea>();
+    public virtual Sala? Sala { get; set; }
 }

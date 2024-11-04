@@ -22,9 +22,8 @@ namespace Eventos.Clases
         {
             using (var bd = new EventosContext())
             {
-                var asignacionesRelacionadas = bd.AsignacionesEmpleados.Where(a => a.EmpleadoId == e.EmpleadoId).ToList();
-                bd.AsignacionesEmpleados.RemoveRange(asignacionesRelacionadas);
-                bd.Empleados.Remove(e);
+                var empleado = bd.Empleados.Find(e.EmpleadoId);
+                bd.Empleados.Remove(empleado);
                 bd.SaveChanges();
             }
         }

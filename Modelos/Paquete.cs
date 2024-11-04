@@ -11,5 +11,7 @@ public partial class Paquete
 
     public string? Descripcion { get; set; }
 
-    public virtual ICollection<DetallesPaquete> DetallesPaquetes { get; set; } = new List<DetallesPaquete>();
+    public string? Articulos { get; set; }
+
+    public virtual ICollection<Evento> Eventos { get; set; } = new List<Evento>();
 }

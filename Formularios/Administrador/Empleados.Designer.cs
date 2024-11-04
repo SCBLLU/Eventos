@@ -35,6 +35,9 @@
             btnEditar = new Button();
             btnEliminar = new Button();
             panel3 = new Panel();
+            txtUsuario = new TextBox();
+            label6 = new Label();
+            txtID = new TextBox();
             txtTelefono = new TextBox();
             txtCorreo = new TextBox();
             cmbRol = new ComboBox();
@@ -45,7 +48,8 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
-            txtID = new TextBox();
+            txtContraseña = new TextBox();
+            label7 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel2.SuspendLayout();
@@ -124,6 +128,10 @@
             // 
             // panel3
             // 
+            panel3.Controls.Add(txtContraseña);
+            panel3.Controls.Add(label7);
+            panel3.Controls.Add(txtUsuario);
+            panel3.Controls.Add(label6);
             panel3.Controls.Add(txtID);
             panel3.Controls.Add(txtTelefono);
             panel3.Controls.Add(txtCorreo);
@@ -141,16 +149,40 @@
             panel3.Size = new Size(364, 344);
             panel3.TabIndex = 2;
             // 
+            // txtUsuario
+            // 
+            txtUsuario.Location = new Point(82, 222);
+            txtUsuario.Name = "txtUsuario";
+            txtUsuario.Size = new Size(160, 23);
+            txtUsuario.TabIndex = 14;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 12F);
+            label6.Location = new Point(8, 224);
+            label6.Name = "label6";
+            label6.Size = new Size(64, 21);
+            label6.TabIndex = 12;
+            label6.Text = "Usuario";
+            // 
+            // txtID
+            // 
+            txtID.Location = new Point(308, 19);
+            txtID.Name = "txtID";
+            txtID.Size = new Size(44, 23);
+            txtID.TabIndex = 11;
+            // 
             // txtTelefono
             // 
-            txtTelefono.Location = new Point(82, 246);
+            txtTelefono.Location = new Point(82, 179);
             txtTelefono.Name = "txtTelefono";
             txtTelefono.Size = new Size(160, 23);
             txtTelefono.TabIndex = 10;
             // 
             // txtCorreo
             // 
-            txtCorreo.Location = new Point(82, 192);
+            txtCorreo.Location = new Point(82, 137);
             txtCorreo.Name = "txtCorreo";
             txtCorreo.Size = new Size(160, 23);
             txtCorreo.TabIndex = 9;
@@ -158,14 +190,15 @@
             // cmbRol
             // 
             cmbRol.FormattingEnabled = true;
-            cmbRol.Location = new Point(82, 135);
+            cmbRol.Location = new Point(82, 99);
             cmbRol.Name = "cmbRol";
             cmbRol.Size = new Size(160, 23);
             cmbRol.TabIndex = 8;
+            cmbRol.SelectedIndexChanged += cmbRol_SelectedIndexChanged;
             // 
             // txtApellido
             // 
-            txtApellido.Location = new Point(82, 79);
+            txtApellido.Location = new Point(82, 58);
             txtApellido.Name = "txtApellido";
             txtApellido.Size = new Size(160, 23);
             txtApellido.TabIndex = 7;
@@ -181,7 +214,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 12F);
-            label5.Location = new Point(6, 244);
+            label5.Location = new Point(6, 177);
             label5.Name = "label5";
             label5.Size = new Size(68, 21);
             label5.TabIndex = 4;
@@ -191,7 +224,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F);
-            label4.Location = new Point(6, 190);
+            label4.Location = new Point(6, 135);
             label4.Name = "label4";
             label4.Size = new Size(58, 21);
             label4.TabIndex = 3;
@@ -201,7 +234,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F);
-            label3.Location = new Point(6, 133);
+            label3.Location = new Point(6, 97);
             label3.Name = "label3";
             label3.Size = new Size(33, 21);
             label3.TabIndex = 2;
@@ -211,7 +244,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F);
-            label2.Location = new Point(6, 77);
+            label2.Location = new Point(6, 56);
             label2.Name = "label2";
             label2.Size = new Size(67, 21);
             label2.TabIndex = 1;
@@ -227,12 +260,22 @@
             label1.TabIndex = 0;
             label1.Text = "Nombre";
             // 
-            // txtID
+            // txtContraseña
             // 
-            txtID.Location = new Point(8, 315);
-            txtID.Name = "txtID";
-            txtID.Size = new Size(44, 23);
-            txtID.TabIndex = 11;
+            txtContraseña.Location = new Point(82, 265);
+            txtContraseña.Name = "txtContraseña";
+            txtContraseña.Size = new Size(160, 23);
+            txtContraseña.TabIndex = 16;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 12F);
+            label7.Location = new Point(8, 267);
+            label7.Name = "label7";
+            label7.Size = new Size(48, 21);
+            label7.TabIndex = 15;
+            label7.Text = "Clave";
             // 
             // Empleados
             // 
@@ -273,5 +316,9 @@
         private Button btbAgregar;
         private Button btnEditar;
         private TextBox txtID;
+        private Label label6;
+        private TextBox txtUsuario;
+        private TextBox txtContraseña;
+        private Label label7;
     }
 }

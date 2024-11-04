@@ -31,7 +31,7 @@ namespace Eventos.Formularios.Administrador
 
         private void btbAgregar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrEmpty(txtApellido.Text) || string.IsNullOrEmpty(cmbRol.Text) || string.IsNullOrEmpty(txtCorreo.Text) || string.IsNullOrEmpty(txtTelefono.Text))
+            if (string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrEmpty(txtApellido.Text) || string.IsNullOrEmpty(cmbRol.Text) || string.IsNullOrEmpty(txtCorreo.Text) || string.IsNullOrEmpty(txtTelefono.Text) || string.IsNullOrEmpty(txtUsuario.Text) || string.IsNullOrEmpty(txtContraseña.Text))
             {
                 MessageBox.Show("Por favor, llene todos los campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -46,7 +46,9 @@ namespace Eventos.Formularios.Administrador
                     Apellido = txtApellido.Text,
                     Rol = cmbRol.Text,
                     Email = txtCorreo.Text,
-                    Telefono = txtTelefono.Text
+                    Telefono = txtTelefono.Text,
+                    NombreUsuario = txtUsuario.Text,
+                    Contraseña = txtContraseña.Text
                 };
 
                 crudEmpleados.CrearEmpleado(empleado);
@@ -73,7 +75,9 @@ namespace Eventos.Formularios.Administrador
                     Apellido = txtApellido.Text,
                     Rol = cmbRol.Text,
                     Email = txtCorreo.Text,
-                    Telefono = txtTelefono.Text
+                    Telefono = txtTelefono.Text,
+                    NombreUsuario = txtUsuario.Text,
+                    Contraseña = txtContraseña.Text
                 };
 
                 crudEmpleados.ActualizarEmpleado(empleado);
@@ -113,6 +117,8 @@ namespace Eventos.Formularios.Administrador
                 cmbRol.Text = dataGridView1.CurrentRow.Cells["Rol"].Value.ToString();
                 txtCorreo.Text = dataGridView1.CurrentRow.Cells["Email"].Value.ToString();
                 txtTelefono.Text = dataGridView1.CurrentRow.Cells["Telefono"].Value.ToString();
+                txtUsuario.Text = dataGridView1.CurrentRow.Cells["NombreUsuario"].Value.ToString();
+                txtContraseña.Text = dataGridView1.CurrentRow.Cells["Contraseña"].Value.ToString();
                 txtID.Text = dataGridView1.CurrentRow.Cells["EmpleadoId"].Value.ToString();
             }
         }
@@ -123,9 +129,6 @@ namespace Eventos.Formularios.Administrador
             {
                 var empleados = context.Empleados.ToList();
                 dataGridView1.DataSource = empleados;
-                dataGridView1.Columns["AsignacionesEmpleados"].Visible = false;
-                dataGridView1.Columns["Tareas"].Visible = false;
-                dataGridView1.Columns["Usuarios"].Visible = false;
             }
         }
 
@@ -152,7 +155,14 @@ namespace Eventos.Formularios.Administrador
             cmbRol.Text = "";
             txtCorreo.Text = "";
             txtTelefono.Text = "";
+            txtUsuario.Text = "";
+            txtContraseña.Text = "";
             txtID.Text = "";
+        }
+
+        private void cmbRol_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

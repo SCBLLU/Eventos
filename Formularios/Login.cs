@@ -31,30 +31,22 @@ namespace Eventos.Formularios
 
             using (var bd = new EventosContext())
             {
-                var user = bd.Usuarios
-                    .Include(u => u.Empleado)
+                var user = bd.Empleados
                     .FirstOrDefault(u => u.NombreUsuario == usuario && u.Contraseña == contrasena);
 
                 if (user != null)
                 {
-                    if (user.Empleado != null)
+                    if (user.Rol == "Administrador")
                     {
-                        if (user.Empleado.Rol == "Administrador")
-                        {
-                            var adminMenu = new Eventos.Formularios.Administrador.Menu();
-                            adminMenu.Show();
-                        }
-                        else if (user.Empleado.Rol == "Empleado")
-                        {
-                            var empleadoMenu = new Eventos.Formularios.Empleado.Menu();
-                            empleadoMenu.Show();
-                        }
-                        this.Hide();
+                        var adminMenu = new Eventos.Formularios.Administrador.Menu();
+                        adminMenu.Show();
                     }
-                    else
+                    else if (user.Rol == "Empleado")
                     {
-                        MessageBox.Show("El usuario no tiene un rol asignado.");
+                        var empleadoMenu = new Eventos.Formularios.Empleado.Menu();
+                        empleadoMenu.Show();
                     }
+                    this.Hide();
                 }
                 else
                 {
