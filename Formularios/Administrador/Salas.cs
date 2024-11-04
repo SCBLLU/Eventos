@@ -67,7 +67,27 @@ namespace Eventos.Formularios.Administrador
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtID.Text))
+            {
+                MessageBox.Show("Por favor, seleccione una sala para editar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
+            DialogResult dialogResult = MessageBox.Show("¿Está seguro de que desea editar esta sala?", "Editar Sala", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                var sala = new Sala
+                {
+                    SalaId = int.Parse(txtID.Text),
+                    NombreSala = txtNombre.Text,
+                    Capacidad = (int)numCapacidad.Value,
+                    Ubicacion = txtUbicacion.Text,
+                    Caracteristicas = txtCaracteristicas.Text
+                };
+                crudSalas.ActualizarSala(sala);
+                CargarSalas();
+                limpiarCampos();
+            }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

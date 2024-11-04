@@ -29,19 +29,16 @@ namespace Eventos.Clases
             }
         }
 
-        public Sala ObtenerSalaPorId(int salaId)
+        public void ActualizarSala(Sala s)
         {
             using (var bd = new EventosContext())
             {
-                return bd.Salas.FirstOrDefault(s => s.SalaId == salaId);
-            }
-        }
-
-        public List<Sala> ObtenerTodasLasSalas()
-        {
-            using (var bd = new EventosContext())
-            {
-                return bd.Salas.ToList();
+                var sala = bd.Salas.Find(s.SalaId);
+                sala.NombreSala = s.NombreSala;
+                sala.Capacidad = s.Capacidad;
+                sala.Ubicacion = s.Ubicacion;
+                sala.Caracteristicas = s.Caracteristicas;
+                bd.SaveChanges();
             }
         }
     }
