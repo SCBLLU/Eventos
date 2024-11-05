@@ -22,9 +22,5 @@ namespace Eventos.Formularios.Administrador
 
         }
 
-        private void btnCerrar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
     }
 }

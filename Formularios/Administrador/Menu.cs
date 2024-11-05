@@ -68,6 +68,10 @@ namespace Eventos.Formularios.Administrador
         {
             CargarFormularios(new Informes());
         }
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            CargarFormularios(new Clientes());
+        }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
@@ -77,5 +81,6 @@ namespace Eventos.Formularios.Administrador
             loginForm.ShowDialog();
             this.Close();
         }
+
     }
 }

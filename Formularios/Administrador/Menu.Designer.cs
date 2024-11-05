@@ -40,6 +40,7 @@
             pictureBox1 = new PictureBox();
             panel1 = new Panel();
             Contenedor = new Panel();
+            btnClientes = new Button();
             MenuLateral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
@@ -49,6 +50,7 @@
             // 
             MenuLateral.AutoScroll = true;
             MenuLateral.BackColor = SystemColors.ActiveCaption;
+            MenuLateral.Controls.Add(btnClientes);
             MenuLateral.Controls.Add(btnInformes);
             MenuLateral.Controls.Add(btnPaquetes);
             MenuLateral.Controls.Add(btnSalas);
@@ -179,6 +181,19 @@
             Contenedor.Size = new Size(763, 444);
             Contenedor.TabIndex = 3;
             // 
+            // btnClientes
+            // 
+            btnClientes.Dock = DockStyle.Top;
+            btnClientes.Location = new Point(0, 357);
+            btnClientes.Name = "btnClientes";
+            btnClientes.Padding = new Padding(10, 0, 0, 0);
+            btnClientes.Size = new Size(194, 56);
+            btnClientes.TabIndex = 7;
+            btnClientes.Text = "Clientes";
+            btnClientes.TextAlign = ContentAlignment.MiddleLeft;
+            btnClientes.UseVisualStyleBackColor = true;
+            btnClientes.Click += btnClientes_Click;
+            // 
             // Menu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -210,5 +225,6 @@
         private PictureBox pictureBox1;
         private Panel panel1;
         private Panel Contenedor;
+        private Button btnClientes;
     }
 }
