@@ -136,10 +136,11 @@ namespace Eventos.Formularios.Administrador
         {
             using (var context = new EventosContext())
             {
-                // Obtener los roles únicos de los empleados
+                // Obtener los dos roles únicos de los empleados
                 var roles = context.Empleados
                                    .Select(e => e.Rol)
                                    .Distinct()
+                                   .Take(2)
                                    .ToList();
 
                 // Asignar los roles al ComboBox
