@@ -21,7 +21,13 @@ public partial class Evento
 
     public int? PaqueteId { get; set; }
 
+    public int? EmpleadoId { get; set; }
+
+    public string? Estado { get; set; }
+
     public virtual Cliente? Cliente { get; set; }
+
+    public virtual Empleado? Empleado { get; set; }
 
     public virtual ICollection<Factura> Facturas { get; set; } = new List<Factura>();
 

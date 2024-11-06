@@ -35,9 +35,9 @@ public partial class EventosContext : DbContext
     {
         modelBuilder.Entity<Cliente>(entity =>
         {
-            entity.HasKey(e => e.ClienteId).HasName("PK__Clientes__71ABD0A7DC304740");
+            entity.HasKey(e => e.ClienteId).HasName("PK__Clientes__71ABD0A7B5097FA5");
 
-            entity.HasIndex(e => e.Email, "UQ__Clientes__A9D1053428932D3E").IsUnique();
+            entity.HasIndex(e => e.Email, "UQ__Clientes__A9D1053437B1A4E5").IsUnique();
 
             entity.Property(e => e.ClienteId).HasColumnName("ClienteID");
             entity.Property(e => e.Apellido).HasMaxLength(100);
@@ -49,11 +49,11 @@ public partial class EventosContext : DbContext
 
         modelBuilder.Entity<Empleado>(entity =>
         {
-            entity.HasKey(e => e.EmpleadoId).HasName("PK__Empleado__958BE6F0F7D2689F");
+            entity.HasKey(e => e.EmpleadoId).HasName("PK__Empleado__958BE6F0FC32415C");
 
-            entity.HasIndex(e => e.NombreUsuario, "UQ__Empleado__6B0F5AE0157F97EE").IsUnique();
+            entity.HasIndex(e => e.NombreUsuario, "UQ__Empleado__6B0F5AE065753194").IsUnique();
 
-            entity.HasIndex(e => e.Email, "UQ__Empleado__A9D105346AFB237F").IsUnique();
+            entity.HasIndex(e => e.Email, "UQ__Empleado__A9D105344C57FE81").IsUnique();
 
             entity.Property(e => e.EmpleadoId).HasColumnName("EmpleadoID");
             entity.Property(e => e.Apellido).HasMaxLength(100);
@@ -70,12 +70,16 @@ public partial class EventosContext : DbContext
 
         modelBuilder.Entity<Evento>(entity =>
         {
-            entity.HasKey(e => e.EventoId).HasName("PK__Eventos__1EEB5901BD798D6F");
+            entity.HasKey(e => e.EventoId).HasName("PK__Eventos__1EEB59011B0F6BF7");
 
-            entity.HasIndex(e => e.NombreEvento, "UQ__Eventos__FB7DE1C1E0D214EC").IsUnique();
+            entity.HasIndex(e => e.NombreEvento, "UQ__Eventos__FB7DE1C1222C9642").IsUnique();
 
             entity.Property(e => e.EventoId).HasColumnName("EventoID");
             entity.Property(e => e.ClienteId).HasColumnName("ClienteID");
+            entity.Property(e => e.EmpleadoId).HasColumnName("EmpleadoID");
+            entity.Property(e => e.Estado)
+                .HasMaxLength(20)
+                .HasDefaultValue("Pendiente");
             entity.Property(e => e.FechaFin).HasColumnType("datetime");
             entity.Property(e => e.FechaInicio).HasColumnType("datetime");
             entity.Property(e => e.NombreEvento).HasMaxLength(100);
@@ -85,6 +89,10 @@ public partial class EventosContext : DbContext
             entity.HasOne(d => d.Cliente).WithMany(p => p.Eventos)
                 .HasForeignKey(d => d.ClienteId)
                 .HasConstraintName("FK__Eventos__Cliente__48CFD27E");
+
+            entity.HasOne(d => d.Empleado).WithMany(p => p.Eventos)
+                .HasForeignKey(d => d.EmpleadoId)
+                .HasConstraintName("FK__Eventos__Emplead__4AB81AF0");
 
             entity.HasOne(d => d.Paquete).WithMany(p => p.Eventos)
                 .HasForeignKey(d => d.PaqueteId)
@@ -97,7 +105,7 @@ public partial class EventosContext : DbContext
 
         modelBuilder.Entity<Factura>(entity =>
         {
-            entity.HasKey(e => e.FacturaId).HasName("PK__Facturas__5C024805912EF0B9");
+            entity.HasKey(e => e.FacturaId).HasName("PK__Facturas__5C024805008F35B2");
 
             entity.Property(e => e.FacturaId).HasColumnName("FacturaID");
             entity.Property(e => e.ClienteId).HasColumnName("ClienteID");
@@ -112,19 +120,19 @@ public partial class EventosContext : DbContext
 
             entity.HasOne(d => d.Cliente).WithMany(p => p.Facturas)
                 .HasForeignKey(d => d.ClienteId)
-                .HasConstraintName("FK__Facturas__Client__4E88ABD4");
+                .HasConstraintName("FK__Facturas__Client__5165187F");
 
             entity.HasOne(d => d.Evento).WithMany(p => p.Facturas)
                 .HasForeignKey(d => d.EventoId)
                 .OnDelete(DeleteBehavior.Cascade)
-                .HasConstraintName("FK__Facturas__Evento__4D94879B");
+                .HasConstraintName("FK__Facturas__Evento__5070F446");
         });
 
         modelBuilder.Entity<Paquete>(entity =>
         {
-            entity.HasKey(e => e.PaqueteId).HasName("PK__Paquetes__7B9F2DD2B98215DE");
+            entity.HasKey(e => e.PaqueteId).HasName("PK__Paquetes__7B9F2DD2DA4DE14C");
 
-            entity.HasIndex(e => e.NombrePaquete, "UQ__Paquetes__C97A4BE6E1D5C88A").IsUnique();
+            entity.HasIndex(e => e.NombrePaquete, "UQ__Paquetes__C97A4BE6FB187562").IsUnique();
 
             entity.Property(e => e.PaqueteId).HasColumnName("PaqueteID");
             entity.Property(e => e.NombrePaquete).HasMaxLength(100);
@@ -132,9 +140,9 @@ public partial class EventosContext : DbContext
 
         modelBuilder.Entity<Sala>(entity =>
         {
-            entity.HasKey(e => e.SalaId).HasName("PK__Salas__0428485AB4F73A88");
+            entity.HasKey(e => e.SalaId).HasName("PK__Salas__0428485ADCDB7716");
 
-            entity.HasIndex(e => e.NombreSala, "UQ__Salas__1399C32B6EABCFFF").IsUnique();
+            entity.HasIndex(e => e.NombreSala, "UQ__Salas__1399C32B08CDB55B").IsUnique();
 
             entity.Property(e => e.SalaId).HasColumnName("SalaID");
             entity.Property(e => e.NombreSala).HasMaxLength(100);

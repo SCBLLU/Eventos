@@ -22,4 +22,6 @@ public partial class Empleado
     public string Contraseña { get; set; } = null!;
 
     public DateTime? FechaCreacion { get; set; }
+
+    public virtual ICollection<Evento> Eventos { get; set; } = new List<Evento>();
 }

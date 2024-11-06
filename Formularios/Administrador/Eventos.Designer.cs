@@ -30,6 +30,7 @@
         {
             dataGridView1 = new DataGridView();
             groupBox1 = new GroupBox();
+            txtID = new TextBox();
             btnEliminar = new Button();
             btnEditar = new Button();
             btnAgregar = new Button();
@@ -47,7 +48,10 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
-            txtID = new TextBox();
+            comboEmpleadoID = new ComboBox();
+            label8 = new Label();
+            comboEstado = new ComboBox();
+            label9 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -64,6 +68,10 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(comboEstado);
+            groupBox1.Controls.Add(label9);
+            groupBox1.Controls.Add(comboEmpleadoID);
+            groupBox1.Controls.Add(label8);
             groupBox1.Controls.Add(txtID);
             groupBox1.Controls.Add(btnEliminar);
             groupBox1.Controls.Add(btnEditar);
@@ -89,6 +97,13 @@
             groupBox1.TabIndex = 6;
             groupBox1.TabStop = false;
             groupBox1.Text = "Agregar Eventos";
+            // 
+            // txtID
+            // 
+            txtID.Location = new Point(537, 215);
+            txtID.Name = "txtID";
+            txtID.Size = new Size(40, 23);
+            txtID.TabIndex = 18;
             // 
             // btnEliminar
             // 
@@ -242,12 +257,41 @@
             label1.TabIndex = 1;
             label1.Text = "Nombre del evento";
             // 
-            // txtID
+            // comboEmpleadoID
             // 
-            txtID.Location = new Point(410, 268);
-            txtID.Name = "txtID";
-            txtID.Size = new Size(121, 23);
-            txtID.TabIndex = 18;
+            comboEmpleadoID.FormattingEnabled = true;
+            comboEmpleadoID.Location = new Point(410, 268);
+            comboEmpleadoID.Name = "comboEmpleadoID";
+            comboEmpleadoID.Size = new Size(121, 23);
+            comboEmpleadoID.TabIndex = 20;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 12F);
+            label8.Location = new Point(410, 245);
+            label8.Name = "label8";
+            label8.Size = new Size(79, 21);
+            label8.TabIndex = 19;
+            label8.Text = "Empleado";
+            // 
+            // comboEstado
+            // 
+            comboEstado.FormattingEnabled = true;
+            comboEstado.Location = new Point(410, 332);
+            comboEstado.Name = "comboEstado";
+            comboEstado.Size = new Size(121, 23);
+            comboEstado.TabIndex = 22;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 12F);
+            label9.Location = new Point(410, 309);
+            label9.Name = "label9";
+            label9.Size = new Size(56, 21);
+            label9.TabIndex = 21;
+            label9.Text = "Estado";
             // 
             // Eventos
             // 
@@ -286,5 +330,9 @@
         private Button btnEditar;
         private Button btnAgregar;
         private TextBox txtID;
+        private ComboBox comboEstado;
+        private Label label9;
+        private ComboBox comboEmpleadoID;
+        private Label label8;
     }
 }

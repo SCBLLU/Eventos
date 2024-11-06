@@ -17,7 +17,9 @@ namespace Eventos.Formularios.Administrador
         private List<Evento> evento;
         private List<Sala> sala;
         private List<Cliente> cliente;
+        private List<Empleados> empleado; 
         private List<Paquete> paquete;
+
         CRUDEventos crudEventos = new CRUDEventos();
 
         public Eventos()
@@ -31,6 +33,8 @@ namespace Eventos.Formularios.Administrador
             CargarSalas();
             CargarClientes();
             CargarPaquetes();
+            CargarEmpleados();
+            CargarEstados();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -42,9 +46,11 @@ namespace Eventos.Formularios.Administrador
                 dateInicio.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells["FechaInicio"].Value.ToString());
                 dateFin.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells["FechaFin"].Value.ToString());
                 txtDescripcion.Text = dataGridView1.CurrentRow.Cells["Descripcion"].Value.ToString();
+                comboEstado.Text = dataGridView1.CurrentRow.Cells["Estado"].Value.ToString();
                 comboSalaID.SelectedValue = dataGridView1.CurrentRow.Cells["SalaId"].Value;
                 comboClienteID.SelectedValue = dataGridView1.CurrentRow.Cells["ClienteId"].Value;
                 comboPaquetesID.SelectedValue = dataGridView1.CurrentRow.Cells["PaqueteId"].Value;
+                comboEmpleadoID.SelectedValue = dataGridView1.CurrentRow.Cells["EmpleadoId"].Value;
             }
         }
 
@@ -67,7 +73,9 @@ namespace Eventos.Formularios.Administrador
                     Descripcion = txtDescripcion.Text,
                     SalaId = (int)comboSalaID.SelectedValue,
                     ClienteId = (int)comboClienteID.SelectedValue,
-                    PaqueteId = (int)comboPaquetesID.SelectedValue
+                    PaqueteId = (int)comboPaquetesID.SelectedValue,
+                    EmpleadoId = (int)comboEmpleadoID.SelectedValue,
+                    Estado = comboEstado.Text
                 };
 
                 crudEventos.CrearEvento(evento);
@@ -96,7 +104,9 @@ namespace Eventos.Formularios.Administrador
                     Descripcion = txtDescripcion.Text,
                     SalaId = (int)comboSalaID.SelectedValue,
                     ClienteId = (int)comboClienteID.SelectedValue,
-                    PaqueteId = (int)comboPaquetesID.SelectedValue
+                    PaqueteId = (int)comboPaquetesID.SelectedValue,
+                    EmpleadoId = (int)comboEmpleadoID.SelectedValue,
+                    Estado = comboEstado.Text
                 };
 
                 crudEventos.ActualizarEvento(evento);
@@ -169,6 +179,23 @@ namespace Eventos.Formularios.Administrador
             }
         }
 
+        private void CargarEmpleados()
+        {
+            using (var context = new EventosContext())
+            {
+                var empleados = context.Empleados.ToList();
+                comboEmpleadoID.DataSource = empleados;
+                comboEmpleadoID.DisplayMember = "Nombre";
+                comboEmpleadoID.ValueMember = "EmpleadoId";
+            }
+        }
+
+        private void CargarEstados()
+        {
+            var estados = new List<string> { "Pendiente", "En curso", "Completado", "Cancelado" };
+            comboEstado.DataSource = estados;
+        }
+
         private void LimpiarCampos()
         {
             txtID.Text = "";
@@ -179,6 +206,8 @@ namespace Eventos.Formularios.Administrador
             comboSalaID.SelectedIndex = 0;
             comboClienteID.SelectedIndex = 0;
             comboPaquetesID.SelectedIndex = 0;
+            comboEmpleadoID.SelectedIndex = 0;
+            comboEstado.SelectedIndex = 0;
         }
     }
 }
