@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             MenuLateral = new Panel();
-            btnInformes = new Button();
+            btnClientes = new Button();
             btnPaquetes = new Button();
             btnSalas = new Button();
             btnEmpleado = new Button();
@@ -40,18 +40,16 @@
             pictureBox1 = new PictureBox();
             panel1 = new Panel();
             Contenedor = new Panel();
-            btnClientes = new Button();
             MenuLateral.SuspendLayout();
+            Logo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // MenuLateral
             // 
             MenuLateral.AutoScroll = true;
-            MenuLateral.BackColor = SystemColors.ActiveCaption;
+            MenuLateral.BackColor = Color.DarkGray;
             MenuLateral.Controls.Add(btnClientes);
-            MenuLateral.Controls.Add(btnInformes);
             MenuLateral.Controls.Add(btnPaquetes);
             MenuLateral.Controls.Add(btnSalas);
             MenuLateral.Controls.Add(btnEmpleado);
@@ -61,90 +59,109 @@
             MenuLateral.Dock = DockStyle.Left;
             MenuLateral.Location = new Point(0, 0);
             MenuLateral.Name = "MenuLateral";
-            MenuLateral.Size = new Size(194, 518);
+            MenuLateral.Size = new Size(194, 521);
             MenuLateral.TabIndex = 0;
             // 
-            // btnInformes
+            // btnClientes
             // 
-            btnInformes.Dock = DockStyle.Top;
-            btnInformes.Location = new Point(0, 301);
-            btnInformes.Name = "btnInformes";
-            btnInformes.Padding = new Padding(10, 0, 0, 0);
-            btnInformes.Size = new Size(194, 56);
-            btnInformes.TabIndex = 6;
-            btnInformes.Text = "Informes";
-            btnInformes.TextAlign = ContentAlignment.MiddleLeft;
-            btnInformes.UseVisualStyleBackColor = true;
-            btnInformes.Click += btnInformes_Click;
+            btnClientes.BackColor = Color.White;
+            btnClientes.Dock = DockStyle.Top;
+            btnClientes.FlatStyle = FlatStyle.Flat;
+            btnClientes.Font = new Font("Segoe UI", 12F);
+            btnClientes.Location = new Point(0, 277);
+            btnClientes.Name = "btnClientes";
+            btnClientes.Padding = new Padding(15, 0, 0, 0);
+            btnClientes.Size = new Size(194, 50);
+            btnClientes.TabIndex = 7;
+            btnClientes.Text = "Clientes";
+            btnClientes.TextAlign = ContentAlignment.MiddleLeft;
+            btnClientes.UseVisualStyleBackColor = false;
+            btnClientes.Click += btnClientes_Click;
             // 
             // btnPaquetes
             // 
+            btnPaquetes.BackColor = Color.White;
             btnPaquetes.Dock = DockStyle.Top;
-            btnPaquetes.Location = new Point(0, 245);
+            btnPaquetes.FlatStyle = FlatStyle.Flat;
+            btnPaquetes.Font = new Font("Segoe UI", 12F);
+            btnPaquetes.Location = new Point(0, 227);
             btnPaquetes.Name = "btnPaquetes";
-            btnPaquetes.Padding = new Padding(10, 0, 0, 0);
-            btnPaquetes.Size = new Size(194, 56);
+            btnPaquetes.Padding = new Padding(15, 0, 0, 0);
+            btnPaquetes.Size = new Size(194, 50);
             btnPaquetes.TabIndex = 5;
             btnPaquetes.Text = "Paquetes";
             btnPaquetes.TextAlign = ContentAlignment.MiddleLeft;
-            btnPaquetes.UseVisualStyleBackColor = true;
+            btnPaquetes.UseVisualStyleBackColor = false;
             btnPaquetes.Click += btnPaquetes_Click;
             // 
             // btnSalas
             // 
+            btnSalas.BackColor = Color.White;
             btnSalas.Dock = DockStyle.Top;
-            btnSalas.Location = new Point(0, 189);
+            btnSalas.FlatStyle = FlatStyle.Flat;
+            btnSalas.Font = new Font("Segoe UI", 12F);
+            btnSalas.Location = new Point(0, 177);
             btnSalas.Name = "btnSalas";
-            btnSalas.Padding = new Padding(10, 0, 0, 0);
-            btnSalas.Size = new Size(194, 56);
+            btnSalas.Padding = new Padding(15, 0, 0, 0);
+            btnSalas.Size = new Size(194, 50);
             btnSalas.TabIndex = 4;
             btnSalas.Text = "Salas";
             btnSalas.TextAlign = ContentAlignment.MiddleLeft;
-            btnSalas.UseVisualStyleBackColor = true;
+            btnSalas.UseVisualStyleBackColor = false;
             btnSalas.Click += btnSalas_Click;
             // 
             // btnEmpleado
             // 
+            btnEmpleado.BackColor = Color.White;
             btnEmpleado.Dock = DockStyle.Top;
-            btnEmpleado.Location = new Point(0, 133);
+            btnEmpleado.FlatStyle = FlatStyle.Flat;
+            btnEmpleado.Font = new Font("Segoe UI", 12F);
+            btnEmpleado.Location = new Point(0, 127);
             btnEmpleado.Name = "btnEmpleado";
-            btnEmpleado.Padding = new Padding(10, 0, 0, 0);
-            btnEmpleado.Size = new Size(194, 56);
+            btnEmpleado.Padding = new Padding(15, 0, 0, 0);
+            btnEmpleado.Size = new Size(194, 50);
             btnEmpleado.TabIndex = 3;
             btnEmpleado.Text = "Empleados";
             btnEmpleado.TextAlign = ContentAlignment.MiddleLeft;
-            btnEmpleado.UseVisualStyleBackColor = true;
+            btnEmpleado.UseVisualStyleBackColor = false;
             btnEmpleado.Click += btnEmpleado_Click;
             // 
             // btnEventos
             // 
+            btnEventos.BackColor = Color.White;
             btnEventos.Dock = DockStyle.Top;
+            btnEventos.FlatStyle = FlatStyle.Flat;
+            btnEventos.Font = new Font("Segoe UI", 12F);
             btnEventos.Location = new Point(0, 77);
             btnEventos.Name = "btnEventos";
-            btnEventos.Padding = new Padding(10, 0, 0, 0);
-            btnEventos.Size = new Size(194, 56);
+            btnEventos.Padding = new Padding(15, 0, 0, 0);
+            btnEventos.Size = new Size(194, 50);
             btnEventos.TabIndex = 2;
             btnEventos.Text = "Eventos";
             btnEventos.TextAlign = ContentAlignment.MiddleLeft;
-            btnEventos.UseVisualStyleBackColor = true;
+            btnEventos.UseVisualStyleBackColor = false;
             btnEventos.Click += btnEventos_Click;
             // 
             // btnSalir
             // 
+            btnSalir.BackColor = Color.White;
             btnSalir.Dock = DockStyle.Bottom;
-            btnSalir.Location = new Point(0, 468);
+            btnSalir.FlatStyle = FlatStyle.Flat;
+            btnSalir.Font = new Font("Segoe UI", 12F);
+            btnSalir.Location = new Point(0, 471);
             btnSalir.Name = "btnSalir";
-            btnSalir.Padding = new Padding(10, 0, 0, 0);
+            btnSalir.Padding = new Padding(15, 0, 0, 0);
             btnSalir.Size = new Size(194, 50);
             btnSalir.TabIndex = 1;
             btnSalir.Text = "Cerrar Sesión";
             btnSalir.TextAlign = ContentAlignment.MiddleLeft;
-            btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.UseVisualStyleBackColor = false;
             btnSalir.Click += btnSalir_Click;
             // 
             // Logo
             // 
-            Logo.BackColor = SystemColors.InactiveCaptionText;
+            Logo.BackColor = Color.Gray;
+            Logo.Controls.Add(pictureBox1);
             Logo.Dock = DockStyle.Top;
             Logo.Location = new Point(0, 0);
             Logo.Name = "Logo";
@@ -153,52 +170,38 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Anchor = AnchorStyles.None;
+            pictureBox1.Dock = DockStyle.Fill;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(145, 3);
+            pictureBox1.Location = new Point(0, 0);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(444, 57);
+            pictureBox1.Size = new Size(194, 77);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             // 
             // panel1
             // 
-            panel1.BackColor = SystemColors.ControlDark;
-            panel1.Controls.Add(pictureBox1);
+            panel1.BackColor = Color.Silver;
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(194, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(763, 74);
+            panel1.Size = new Size(765, 71);
             panel1.TabIndex = 2;
             // 
             // Contenedor
             // 
-            Contenedor.BackColor = Color.CornflowerBlue;
+            Contenedor.BackColor = Color.LightGray;
             Contenedor.Dock = DockStyle.Fill;
-            Contenedor.Location = new Point(194, 74);
+            Contenedor.Location = new Point(194, 71);
             Contenedor.Name = "Contenedor";
-            Contenedor.Size = new Size(763, 444);
+            Contenedor.Size = new Size(765, 450);
             Contenedor.TabIndex = 3;
-            // 
-            // btnClientes
-            // 
-            btnClientes.Dock = DockStyle.Top;
-            btnClientes.Location = new Point(0, 357);
-            btnClientes.Name = "btnClientes";
-            btnClientes.Padding = new Padding(10, 0, 0, 0);
-            btnClientes.Size = new Size(194, 56);
-            btnClientes.TabIndex = 7;
-            btnClientes.Text = "Clientes";
-            btnClientes.TextAlign = ContentAlignment.MiddleLeft;
-            btnClientes.UseVisualStyleBackColor = true;
-            btnClientes.Click += btnClientes_Click;
             // 
             // Menu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(957, 518);
+            ClientSize = new Size(959, 521);
             Controls.Add(Contenedor);
             Controls.Add(panel1);
             Controls.Add(MenuLateral);
@@ -207,8 +210,8 @@
             Text = "Menu";
             Load += Menu_Load;
             MenuLateral.ResumeLayout(false);
+            Logo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -220,7 +223,6 @@
         private Button btnSalas;
         private Button btnEmpleado;
         private Button btnEventos;
-        private Button btnInformes;
         private Panel Logo;
         private PictureBox pictureBox1;
         private Panel panel1;

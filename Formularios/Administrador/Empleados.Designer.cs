@@ -35,6 +35,8 @@
             btnEditar = new Button();
             btnEliminar = new Button();
             panel3 = new Panel();
+            txtContraseña = new TextBox();
+            label7 = new Label();
             txtUsuario = new TextBox();
             label6 = new Label();
             txtID = new TextBox();
@@ -48,8 +50,6 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
-            txtContraseña = new TextBox();
-            label7 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel2.SuspendLayout();
@@ -62,7 +62,7 @@
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(383, 405);
+            panel1.Size = new Size(383, 411);
             panel1.TabIndex = 0;
             // 
             // dataGridView1
@@ -72,7 +72,7 @@
             dataGridView1.Location = new Point(0, 0);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(383, 405);
+            dataGridView1.Size = new Size(383, 411);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -82,15 +82,15 @@
             panel2.Controls.Add(btnEditar);
             panel2.Controls.Add(btnEliminar);
             panel2.Dock = DockStyle.Bottom;
-            panel2.Location = new Point(383, 344);
+            panel2.Location = new Point(383, 350);
             panel2.Name = "panel2";
-            panel2.Size = new Size(364, 61);
+            panel2.Size = new Size(366, 61);
             panel2.TabIndex = 1;
             // 
             // btbAgregar
             // 
             btbAgregar.Anchor = AnchorStyles.None;
-            btbAgregar.Location = new Point(8, 5);
+            btbAgregar.Location = new Point(9, 5);
             btbAgregar.Margin = new Padding(5);
             btbAgregar.Name = "btbAgregar";
             btbAgregar.Padding = new Padding(5);
@@ -103,7 +103,7 @@
             // btnEditar
             // 
             btnEditar.Anchor = AnchorStyles.None;
-            btnEditar.Location = new Point(139, 5);
+            btnEditar.Location = new Point(140, 5);
             btnEditar.Margin = new Padding(5);
             btnEditar.Name = "btnEditar";
             btnEditar.Padding = new Padding(5);
@@ -116,7 +116,7 @@
             // btnEliminar
             // 
             btnEliminar.Anchor = AnchorStyles.None;
-            btnEliminar.Location = new Point(267, 5);
+            btnEliminar.Location = new Point(268, 5);
             btnEliminar.Margin = new Padding(5);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Padding = new Padding(5);
@@ -146,8 +146,25 @@
             panel3.Dock = DockStyle.Fill;
             panel3.Location = new Point(383, 0);
             panel3.Name = "panel3";
-            panel3.Size = new Size(364, 344);
+            panel3.Size = new Size(366, 350);
             panel3.TabIndex = 2;
+            // 
+            // txtContraseña
+            // 
+            txtContraseña.Location = new Point(82, 265);
+            txtContraseña.Name = "txtContraseña";
+            txtContraseña.Size = new Size(160, 23);
+            txtContraseña.TabIndex = 16;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 12F);
+            label7.Location = new Point(8, 267);
+            label7.Name = "label7";
+            label7.Size = new Size(48, 21);
+            label7.TabIndex = 15;
+            label7.Text = "Clave";
             // 
             // txtUsuario
             // 
@@ -260,28 +277,11 @@
             label1.TabIndex = 0;
             label1.Text = "Nombre";
             // 
-            // txtContraseña
-            // 
-            txtContraseña.Location = new Point(82, 265);
-            txtContraseña.Name = "txtContraseña";
-            txtContraseña.Size = new Size(160, 23);
-            txtContraseña.TabIndex = 16;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 12F);
-            label7.Location = new Point(8, 267);
-            label7.Name = "label7";
-            label7.Size = new Size(48, 21);
-            label7.TabIndex = 15;
-            label7.Text = "Clave";
-            // 
             // Empleados
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(747, 405);
+            ClientSize = new Size(749, 411);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);

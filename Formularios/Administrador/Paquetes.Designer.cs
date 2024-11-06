@@ -29,24 +29,24 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            panel2 = new Panel();
-            panel3 = new Panel();
-            btnAgregar = new Button();
-            btnEditar = new Button();
-            btnEliminar = new Button();
             groupBox1 = new GroupBox();
-            dataGridView1 = new DataGridView();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            txtNombre = new TextBox();
-            txtDescripcion = new TextBox();
-            txtArticulos = new TextBox();
             txtID = new TextBox();
+            txtArticulos = new TextBox();
+            txtDescripcion = new TextBox();
+            txtNombre = new TextBox();
+            label3 = new Label();
+            label2 = new Label();
+            label1 = new Label();
+            panel2 = new Panel();
+            btnEliminar = new Button();
+            btnEditar = new Button();
+            btnAgregar = new Button();
+            panel3 = new Panel();
+            dataGridView1 = new DataGridView();
             panel1.SuspendLayout();
+            groupBox1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
-            groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -56,58 +56,8 @@
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(239, 405);
+            panel1.Size = new Size(239, 411);
             panel1.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            panel2.Controls.Add(btnEliminar);
-            panel2.Controls.Add(btnEditar);
-            panel2.Controls.Add(btnAgregar);
-            panel2.Dock = DockStyle.Bottom;
-            panel2.Location = new Point(239, 341);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(508, 64);
-            panel2.TabIndex = 1;
-            // 
-            // panel3
-            // 
-            panel3.Controls.Add(dataGridView1);
-            panel3.Dock = DockStyle.Fill;
-            panel3.Location = new Point(239, 0);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(508, 341);
-            panel3.TabIndex = 2;
-            // 
-            // btnAgregar
-            // 
-            btnAgregar.Location = new Point(19, 14);
-            btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(108, 38);
-            btnAgregar.TabIndex = 0;
-            btnAgregar.Text = "Agregar Paquete";
-            btnAgregar.UseVisualStyleBackColor = true;
-            btnAgregar.Click += btnAgregar_Click;
-            // 
-            // btnEditar
-            // 
-            btnEditar.Location = new Point(195, 14);
-            btnEditar.Name = "btnEditar";
-            btnEditar.Size = new Size(108, 38);
-            btnEditar.TabIndex = 1;
-            btnEditar.Text = "Editar Paquete";
-            btnEditar.UseVisualStyleBackColor = true;
-            btnEditar.Click += btnEditar_Click;
-            // 
-            // btnEliminar
-            // 
-            btnEliminar.Location = new Point(373, 14);
-            btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(108, 38);
-            btnEliminar.TabIndex = 2;
-            btnEliminar.Text = "Eliminar Paquete";
-            btnEliminar.UseVisualStyleBackColor = true;
-            btnEliminar.Click += btnEliminar_Click;
             // 
             // groupBox1
             // 
@@ -125,36 +75,33 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Gestion de Paquetes";
             // 
-            // dataGridView1
+            // txtID
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(0, 0);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(508, 341);
-            dataGridView1.TabIndex = 0;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            txtID.Location = new Point(6, 352);
+            txtID.Name = "txtID";
+            txtID.Size = new Size(41, 23);
+            txtID.TabIndex = 6;
             // 
-            // label1
+            // txtArticulos
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F);
-            label1.Location = new Point(6, 47);
-            label1.Name = "label1";
-            label1.Size = new Size(152, 21);
-            label1.TabIndex = 0;
-            label1.Text = "Nombre del Paquete";
+            txtArticulos.Location = new Point(6, 280);
+            txtArticulos.Name = "txtArticulos";
+            txtArticulos.Size = new Size(199, 23);
+            txtArticulos.TabIndex = 5;
             // 
-            // label2
+            // txtDescripcion
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 12F);
-            label2.Location = new Point(6, 141);
-            label2.Name = "label2";
-            label2.Size = new Size(91, 21);
-            label2.TabIndex = 1;
-            label2.Text = "Descripción";
+            txtDescripcion.Location = new Point(6, 187);
+            txtDescripcion.Name = "txtDescripcion";
+            txtDescripcion.Size = new Size(199, 23);
+            txtDescripcion.TabIndex = 4;
+            // 
+            // txtNombre
+            // 
+            txtNombre.Location = new Point(6, 88);
+            txtNombre.Name = "txtNombre";
+            txtNombre.Size = new Size(199, 23);
+            txtNombre.TabIndex = 3;
             // 
             // label3
             // 
@@ -166,39 +113,92 @@
             label3.TabIndex = 2;
             label3.Text = "Articulos del Paquete";
             // 
-            // txtNombre
+            // label2
             // 
-            txtNombre.Location = new Point(6, 88);
-            txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(199, 23);
-            txtNombre.TabIndex = 3;
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F);
+            label2.Location = new Point(6, 141);
+            label2.Name = "label2";
+            label2.Size = new Size(91, 21);
+            label2.TabIndex = 1;
+            label2.Text = "Descripción";
             // 
-            // txtDescripcion
+            // label1
             // 
-            txtDescripcion.Location = new Point(6, 187);
-            txtDescripcion.Name = "txtDescripcion";
-            txtDescripcion.Size = new Size(199, 23);
-            txtDescripcion.TabIndex = 4;
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12F);
+            label1.Location = new Point(6, 47);
+            label1.Name = "label1";
+            label1.Size = new Size(152, 21);
+            label1.TabIndex = 0;
+            label1.Text = "Nombre del Paquete";
             // 
-            // txtArticulos
+            // panel2
             // 
-            txtArticulos.Location = new Point(6, 280);
-            txtArticulos.Name = "txtArticulos";
-            txtArticulos.Size = new Size(199, 23);
-            txtArticulos.TabIndex = 5;
+            panel2.Controls.Add(btnEliminar);
+            panel2.Controls.Add(btnEditar);
+            panel2.Controls.Add(btnAgregar);
+            panel2.Dock = DockStyle.Bottom;
+            panel2.Location = new Point(239, 347);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(510, 64);
+            panel2.TabIndex = 1;
             // 
-            // txtID
+            // btnEliminar
             // 
-            txtID.Location = new Point(6, 352);
-            txtID.Name = "txtID";
-            txtID.Size = new Size(41, 23);
-            txtID.TabIndex = 6;
+            btnEliminar.Location = new Point(373, 14);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(108, 38);
+            btnEliminar.TabIndex = 2;
+            btnEliminar.Text = "Eliminar Paquete";
+            btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
+            // 
+            // btnEditar
+            // 
+            btnEditar.Location = new Point(195, 14);
+            btnEditar.Name = "btnEditar";
+            btnEditar.Size = new Size(108, 38);
+            btnEditar.TabIndex = 1;
+            btnEditar.Text = "Editar Paquete";
+            btnEditar.UseVisualStyleBackColor = true;
+            btnEditar.Click += btnEditar_Click;
+            // 
+            // btnAgregar
+            // 
+            btnAgregar.Location = new Point(19, 14);
+            btnAgregar.Name = "btnAgregar";
+            btnAgregar.Size = new Size(108, 38);
+            btnAgregar.TabIndex = 0;
+            btnAgregar.Text = "Agregar Paquete";
+            btnAgregar.UseVisualStyleBackColor = true;
+            btnAgregar.Click += btnAgregar_Click;
+            // 
+            // panel3
+            // 
+            panel3.Controls.Add(dataGridView1);
+            panel3.Dock = DockStyle.Fill;
+            panel3.Location = new Point(239, 0);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(510, 347);
+            panel3.TabIndex = 2;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Dock = DockStyle.Fill;
+            dataGridView1.Location = new Point(0, 0);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.Size = new Size(510, 347);
+            dataGridView1.TabIndex = 0;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // Paquetes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(747, 405);
+            ClientSize = new Size(749, 411);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -206,10 +206,10 @@
             Text = "Paquetes";
             Load += Paquetes_Load;
             panel1.ResumeLayout(false);
-            panel2.ResumeLayout(false);
-            panel3.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }

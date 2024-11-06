@@ -143,6 +143,11 @@ namespace Eventos.Formularios.Administrador
             {
                 evento = contexto.Eventos.ToList();
                 dataGridView1.DataSource = evento;
+                dataGridView1.Columns["Cliente"].Visible = false;
+                dataGridView1.Columns["Empleado"].Visible = false;
+                dataGridView1.Columns["Facturas"].Visible = false;
+                dataGridView1.Columns["Paquete"].Visible = false;
+                dataGridView1.Columns["Sala"].Visible = false;
             }
         }
 

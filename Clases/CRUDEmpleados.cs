@@ -36,8 +36,10 @@ namespace Eventos.Clases
                 empleado.Nombre = e.Nombre;
                 empleado.Apellido = e.Apellido;
                 empleado.Rol = e.Rol;
-                empleado.Telefono = e.Telefono;
                 empleado.Email = e.Email;
+                empleado.Telefono = e.Telefono;
+                empleado.NombreUsuario = e.NombreUsuario;
+                empleado.Contraseña = e.Contraseña;
                 bd.SaveChanges();
             }
         }

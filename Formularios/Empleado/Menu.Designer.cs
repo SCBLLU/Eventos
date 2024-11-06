@@ -38,14 +38,14 @@
             pictureBox1 = new PictureBox();
             Contenedor = new Panel();
             MenuLateral.SuspendLayout();
-            panel1.SuspendLayout();
+            Logo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // MenuLateral
             // 
             MenuLateral.AutoScroll = true;
-            MenuLateral.BackColor = SystemColors.ActiveCaption;
+            MenuLateral.BackColor = Color.DarkGray;
             MenuLateral.Controls.Add(btnClientes);
             MenuLateral.Controls.Add(btnEventos);
             MenuLateral.Controls.Add(btnSalir);
@@ -53,51 +53,58 @@
             MenuLateral.Dock = DockStyle.Left;
             MenuLateral.Location = new Point(0, 0);
             MenuLateral.Name = "MenuLateral";
-            MenuLateral.Size = new Size(194, 518);
+            MenuLateral.Size = new Size(194, 521);
             MenuLateral.TabIndex = 1;
             // 
             // btnClientes
             // 
+            btnClientes.BackColor = Color.White;
             btnClientes.Dock = DockStyle.Top;
-            btnClientes.Location = new Point(0, 133);
+            btnClientes.FlatStyle = FlatStyle.Flat;
+            btnClientes.Font = new Font("Segoe UI", 12F);
+            btnClientes.Location = new Point(0, 127);
             btnClientes.Name = "btnClientes";
-            btnClientes.Padding = new Padding(10, 0, 0, 0);
-            btnClientes.Size = new Size(194, 56);
+            btnClientes.Size = new Size(194, 50);
             btnClientes.TabIndex = 7;
             btnClientes.Text = "Clientes";
             btnClientes.TextAlign = ContentAlignment.MiddleLeft;
-            btnClientes.UseVisualStyleBackColor = true;
+            btnClientes.UseVisualStyleBackColor = false;
             btnClientes.Click += btnClientes_Click;
             // 
             // btnEventos
             // 
+            btnEventos.BackColor = Color.White;
             btnEventos.Dock = DockStyle.Top;
+            btnEventos.FlatStyle = FlatStyle.Flat;
+            btnEventos.Font = new Font("Segoe UI", 12F);
             btnEventos.Location = new Point(0, 77);
             btnEventos.Name = "btnEventos";
-            btnEventos.Padding = new Padding(10, 0, 0, 0);
-            btnEventos.Size = new Size(194, 56);
+            btnEventos.Size = new Size(194, 50);
             btnEventos.TabIndex = 2;
             btnEventos.Text = "Eventos";
             btnEventos.TextAlign = ContentAlignment.MiddleLeft;
-            btnEventos.UseVisualStyleBackColor = true;
+            btnEventos.UseVisualStyleBackColor = false;
             btnEventos.Click += btnEventos_Click;
             // 
             // btnSalir
             // 
+            btnSalir.BackColor = Color.White;
             btnSalir.Dock = DockStyle.Bottom;
-            btnSalir.Location = new Point(0, 468);
+            btnSalir.FlatStyle = FlatStyle.Flat;
+            btnSalir.Font = new Font("Segoe UI", 12F);
+            btnSalir.Location = new Point(0, 471);
             btnSalir.Name = "btnSalir";
-            btnSalir.Padding = new Padding(10, 0, 0, 0);
             btnSalir.Size = new Size(194, 50);
             btnSalir.TabIndex = 1;
             btnSalir.Text = "Cerrar Sesión";
             btnSalir.TextAlign = ContentAlignment.MiddleLeft;
-            btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.UseVisualStyleBackColor = false;
             btnSalir.Click += btnSalir_Click;
             // 
             // Logo
             // 
-            Logo.BackColor = SystemColors.InactiveCaptionText;
+            Logo.BackColor = Color.Gray;
+            Logo.Controls.Add(pictureBox1);
             Logo.Dock = DockStyle.Top;
             Logo.Location = new Point(0, 0);
             Logo.Name = "Logo";
@@ -106,39 +113,38 @@
             // 
             // panel1
             // 
-            panel1.BackColor = SystemColors.ControlDark;
-            panel1.Controls.Add(pictureBox1);
+            panel1.BackColor = Color.Silver;
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(194, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(763, 74);
+            panel1.Size = new Size(765, 71);
             panel1.TabIndex = 3;
             // 
             // pictureBox1
             // 
-            pictureBox1.Anchor = AnchorStyles.None;
+            pictureBox1.Dock = DockStyle.Fill;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(6, 3);
+            pictureBox1.Location = new Point(0, 0);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(444, 57);
+            pictureBox1.Size = new Size(194, 77);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             // 
             // Contenedor
             // 
-            Contenedor.BackColor = Color.CornflowerBlue;
+            Contenedor.BackColor = Color.LightGray;
             Contenedor.Dock = DockStyle.Fill;
-            Contenedor.Location = new Point(194, 74);
+            Contenedor.Location = new Point(194, 71);
             Contenedor.Name = "Contenedor";
-            Contenedor.Size = new Size(763, 444);
+            Contenedor.Size = new Size(765, 450);
             Contenedor.TabIndex = 4;
             // 
             // Menu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(957, 518);
+            ClientSize = new Size(959, 521);
             Controls.Add(Contenedor);
             Controls.Add(panel1);
             Controls.Add(MenuLateral);
@@ -146,7 +152,7 @@
             Text = "Menu";
             Load += Menu_Load;
             MenuLateral.ResumeLayout(false);
-            panel1.ResumeLayout(false);
+            Logo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }

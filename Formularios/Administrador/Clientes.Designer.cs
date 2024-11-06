@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            txtID = new TextBox();
             txtDireccion = new TextBox();
             txtTelefono = new TextBox();
             txtCorreo = new TextBox();
@@ -43,7 +44,6 @@
             btnEliminar = new Button();
             btnAgregar = new Button();
             dataGridView1 = new DataGridView();
-            txtID = new TextBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -71,6 +71,13 @@
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Gestionar Clientes";
+            // 
+            // txtID
+            // 
+            txtID.Location = new Point(431, 323);
+            txtID.Name = "txtID";
+            txtID.Size = new Size(51, 23);
+            txtID.TabIndex = 14;
             // 
             // txtDireccion
             // 
@@ -197,18 +204,11 @@
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
-            // txtID
-            // 
-            txtID.Location = new Point(431, 323);
-            txtID.Name = "txtID";
-            txtID.Size = new Size(51, 23);
-            txtID.TabIndex = 14;
-            // 
             // Clientes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(747, 405);
+            ClientSize = new Size(749, 411);
             Controls.Add(groupBox1);
             Name = "Clientes";
             Text = "Clientes";

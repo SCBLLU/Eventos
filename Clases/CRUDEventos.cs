@@ -40,6 +40,8 @@ namespace Eventos.Clases
                 evento.SalaId = e.SalaId;
                 evento.ClienteId = e.ClienteId;
                 evento.PaqueteId = e.PaqueteId;
+                evento.EmpleadoId = e.EmpleadoId;
+                evento.Estado = e.Estado;
                 bd.SaveChanges();
             }
         }

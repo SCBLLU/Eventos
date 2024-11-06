@@ -31,6 +31,7 @@
             panel1 = new Panel();
             dataGridView1 = new DataGridView();
             panel2 = new Panel();
+            txtID = new TextBox();
             txtUbicacion = new RichTextBox();
             label2 = new Label();
             numCapacidad = new NumericUpDown();
@@ -43,7 +44,6 @@
             btnEliminar = new Button();
             btnEditar = new Button();
             btnCrear = new Button();
-            txtID = new TextBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel2.SuspendLayout();
@@ -57,7 +57,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(747, 255);
+            panel1.Size = new Size(749, 255);
             panel1.TabIndex = 0;
             // 
             // dataGridView1
@@ -67,7 +67,7 @@
             dataGridView1.Location = new Point(0, 0);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(747, 255);
+            dataGridView1.Size = new Size(749, 255);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -85,8 +85,15 @@
             panel2.Dock = DockStyle.Left;
             panel2.Location = new Point(0, 255);
             panel2.Name = "panel2";
-            panel2.Size = new Size(549, 150);
+            panel2.Size = new Size(549, 156);
             panel2.TabIndex = 1;
+            // 
+            // txtID
+            // 
+            txtID.Location = new Point(493, 17);
+            txtID.Name = "txtID";
+            txtID.Size = new Size(41, 23);
+            txtID.TabIndex = 13;
             // 
             // txtUbicacion
             // 
@@ -164,9 +171,9 @@
             panel3.Controls.Add(btnEditar);
             panel3.Controls.Add(btnCrear);
             panel3.Dock = DockStyle.Right;
-            panel3.Location = new Point(555, 255);
+            panel3.Location = new Point(557, 255);
             panel3.Name = "panel3";
-            panel3.Size = new Size(192, 150);
+            panel3.Size = new Size(192, 156);
             panel3.TabIndex = 2;
             // 
             // btnEliminar
@@ -199,18 +206,11 @@
             btnCrear.UseVisualStyleBackColor = true;
             btnCrear.Click += btnCrear_Click;
             // 
-            // txtID
-            // 
-            txtID.Location = new Point(493, 17);
-            txtID.Name = "txtID";
-            txtID.Size = new Size(41, 23);
-            txtID.TabIndex = 13;
-            // 
             // Salas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(747, 405);
+            ClientSize = new Size(749, 411);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
