@@ -17,7 +17,7 @@ namespace Eventos.Formularios.Administrador
         private List<Evento> evento;
         private List<Sala> sala;
         private List<Cliente> cliente;
-        private List<Empleados> empleado; 
+        private List<Empleados> empleado;
         private List<Paquete> paquete;
 
         CRUDEventos crudEventos = new CRUDEventos();
@@ -32,8 +32,8 @@ namespace Eventos.Formularios.Administrador
             CargarEventos();
             CargarSalas();
             CargarClientes();
-            CargarPaquetes();
             CargarEmpleados();
+            CargarPaquetes();
             CargarEstados();
         }
 
@@ -46,11 +46,10 @@ namespace Eventos.Formularios.Administrador
                 dateInicio.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells["FechaInicio"].Value.ToString());
                 dateFin.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells["FechaFin"].Value.ToString());
                 txtDescripcion.Text = dataGridView1.CurrentRow.Cells["Descripcion"].Value.ToString();
-                comboEstado.Text = dataGridView1.CurrentRow.Cells["Estado"].Value.ToString();
                 comboSalaID.SelectedValue = dataGridView1.CurrentRow.Cells["SalaId"].Value;
                 comboClienteID.SelectedValue = dataGridView1.CurrentRow.Cells["ClienteId"].Value;
-                comboPaquetesID.SelectedValue = dataGridView1.CurrentRow.Cells["PaqueteId"].Value;
                 comboEmpleadoID.SelectedValue = dataGridView1.CurrentRow.Cells["EmpleadoId"].Value;
+                comboPaquetesID.SelectedValue = dataGridView1.CurrentRow.Cells["PaqueteId"].Value;
             }
         }
 
@@ -65,7 +64,7 @@ namespace Eventos.Formularios.Administrador
             DialogResult dialogResult = MessageBox.Show("¿Está seguro de que desea crear este evento?", "Crear Evento", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                var evento = new Modelos.Evento
+                var evento = new Evento
                 {
                     NombreEvento = txtNombre.Text,
                     FechaInicio = dateInicio.Value,
@@ -73,8 +72,8 @@ namespace Eventos.Formularios.Administrador
                     Descripcion = txtDescripcion.Text,
                     SalaId = (int)comboSalaID.SelectedValue,
                     ClienteId = (int)comboClienteID.SelectedValue,
-                    PaqueteId = (int)comboPaquetesID.SelectedValue,
                     EmpleadoId = (int)comboEmpleadoID.SelectedValue,
+                    PaqueteId = (int)comboPaquetesID.SelectedValue,
                     Estado = comboEstado.Text
                 };
 
@@ -95,7 +94,7 @@ namespace Eventos.Formularios.Administrador
             DialogResult dialogResult = MessageBox.Show("¿Está seguro de que desea editar este evento?", "Editar Evento", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                var evento = new Modelos.Evento
+                var evento = new Evento
                 {
                     EventoId = int.Parse(txtID.Text),
                     NombreEvento = txtNombre.Text,
@@ -104,8 +103,8 @@ namespace Eventos.Formularios.Administrador
                     Descripcion = txtDescripcion.Text,
                     SalaId = (int)comboSalaID.SelectedValue,
                     ClienteId = (int)comboClienteID.SelectedValue,
-                    PaqueteId = (int)comboPaquetesID.SelectedValue,
                     EmpleadoId = (int)comboEmpleadoID.SelectedValue,
+                    PaqueteId = (int)comboPaquetesID.SelectedValue,
                     Estado = comboEstado.Text
                 };
 
@@ -126,7 +125,7 @@ namespace Eventos.Formularios.Administrador
             DialogResult dialogResult = MessageBox.Show("¿Está seguro de que desea eliminar este evento?", "Eliminar Evento", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                var evento = new Modelos.Evento
+                var evento = new Evento
                 {
                     EventoId = int.Parse(txtID.Text)
                 };
@@ -141,13 +140,8 @@ namespace Eventos.Formularios.Administrador
         {
             using (var contexto = new EventosContext())
             {
-                evento = contexto.Eventos.ToList();
-                dataGridView1.DataSource = evento;
-                dataGridView1.Columns["Cliente"].Visible = false;
-                dataGridView1.Columns["Empleado"].Visible = false;
-                dataGridView1.Columns["Facturas"].Visible = false;
-                dataGridView1.Columns["Paquete"].Visible = false;
-                dataGridView1.Columns["Sala"].Visible = false;
+                var eventos = contexto.Eventos.ToList();
+                dataGridView1.DataSource = eventos;
             }
         }
 
@@ -155,8 +149,8 @@ namespace Eventos.Formularios.Administrador
         {
             using (var contexto = new EventosContext())
             {
-                sala = contexto.Salas.ToList();
-                comboSalaID.DataSource = sala;
+                var salas = contexto.Salas.ToList();
+                comboSalaID.DataSource = salas;
                 comboSalaID.DisplayMember = "NombreSala";
                 comboSalaID.ValueMember = "SalaId";
             }
@@ -166,8 +160,8 @@ namespace Eventos.Formularios.Administrador
         {
             using (var contexto = new EventosContext())
             {
-                cliente = contexto.Clientes.ToList();
-                comboClienteID.DataSource = cliente;
+                var clientes = contexto.Clientes.ToList();
+                comboClienteID.DataSource = clientes;
                 comboClienteID.DisplayMember = "Nombre";
                 comboClienteID.ValueMember = "ClienteId";
             }
@@ -177,8 +171,8 @@ namespace Eventos.Formularios.Administrador
         {
             using (var contexto = new EventosContext())
             {
-                paquete = contexto.Paquetes.ToList();
-                comboPaquetesID.DataSource = paquete;
+                var paquetes = contexto.Paquetes.ToList();
+                comboPaquetesID.DataSource = paquetes;
                 comboPaquetesID.DisplayMember = "NombrePaquete";
                 comboPaquetesID.ValueMember = "PaqueteId";
             }
@@ -186,18 +180,25 @@ namespace Eventos.Formularios.Administrador
 
         private void CargarEmpleados()
         {
-            using (var context = new EventosContext())
+            using (var contexto = new EventosContext())
             {
-                var empleados = context.Empleados.ToList();
+                var empleados = contexto.Empleados.ToList();
                 comboEmpleadoID.DataSource = empleados;
                 comboEmpleadoID.DisplayMember = "Nombre";
                 comboEmpleadoID.ValueMember = "EmpleadoId";
             }
         }
 
+
         private void CargarEstados()
         {
-            var estados = new List<string> { "Pendiente", "En curso", "Completado", "Cancelado" };
+            var estados = new List<string>
+            {
+                "Pendiente",
+                "En curso",
+                "Completado",
+                "Cancelado"
+            };
             comboEstado.DataSource = estados;
         }
 
@@ -210,8 +211,8 @@ namespace Eventos.Formularios.Administrador
             txtDescripcion.Text = "";
             comboSalaID.SelectedIndex = 0;
             comboClienteID.SelectedIndex = 0;
-            comboPaquetesID.SelectedIndex = 0;
             comboEmpleadoID.SelectedIndex = 0;
+            comboPaquetesID.SelectedIndex = 0;
             comboEstado.SelectedIndex = 0;
         }
     }

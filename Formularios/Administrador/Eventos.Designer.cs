@@ -50,6 +50,7 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
+            label10 = new Label();
             dataGridView1 = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -58,216 +59,231 @@
             // 
             comboEstado.Cursor = Cursors.Hand;
             comboEstado.FormattingEnabled = true;
-            comboEstado.Location = new Point(420, 340);
+            comboEstado.Location = new Point(421, 343);
             comboEstado.Name = "comboEstado";
             comboEstado.Size = new Size(121, 23);
-            comboEstado.TabIndex = 45;
+            comboEstado.TabIndex = 91;
             // 
             // label9
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 12F);
-            label9.Location = new Point(420, 317);
+            label9.Location = new Point(421, 320);
             label9.Name = "label9";
             label9.Size = new Size(56, 21);
-            label9.TabIndex = 44;
+            label9.TabIndex = 90;
             label9.Text = "Estado";
             // 
             // comboEmpleadoID
             // 
             comboEmpleadoID.Cursor = Cursors.Hand;
             comboEmpleadoID.FormattingEnabled = true;
-            comboEmpleadoID.Location = new Point(420, 276);
+            comboEmpleadoID.Location = new Point(421, 279);
             comboEmpleadoID.Name = "comboEmpleadoID";
             comboEmpleadoID.Size = new Size(121, 23);
-            comboEmpleadoID.TabIndex = 43;
+            comboEmpleadoID.TabIndex = 89;
             // 
             // label8
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 12F);
-            label8.Location = new Point(420, 253);
+            label8.Location = new Point(421, 256);
             label8.Name = "label8";
             label8.Size = new Size(79, 21);
-            label8.TabIndex = 42;
+            label8.TabIndex = 88;
             label8.Text = "Empleado";
             // 
             // txtID
             // 
             txtID.Enabled = false;
-            txtID.Location = new Point(547, 223);
+            txtID.Location = new Point(548, 226);
             txtID.Name = "txtID";
             txtID.Size = new Size(40, 23);
-            txtID.TabIndex = 41;
+            txtID.TabIndex = 87;
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(621, 326);
+            btnEliminar.Location = new Point(622, 329);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(106, 49);
-            btnEliminar.TabIndex = 40;
+            btnEliminar.TabIndex = 86;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // btnEditar
             // 
-            btnEditar.Location = new Point(621, 265);
+            btnEditar.Location = new Point(622, 268);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(106, 49);
-            btnEditar.TabIndex = 39;
+            btnEditar.TabIndex = 85;
             btnEditar.Text = "Editar";
             btnEditar.UseVisualStyleBackColor = true;
+            btnEditar.Click += btnEditar_Click;
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(621, 197);
+            btnAgregar.Location = new Point(622, 200);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(106, 49);
-            btnAgregar.TabIndex = 38;
+            btnAgregar.TabIndex = 84;
             btnAgregar.Text = "Crear";
             btnAgregar.UseVisualStyleBackColor = true;
+            btnAgregar.Click += btnAgregar_Click;
             // 
             // comboPaquetesID
             // 
             comboPaquetesID.Cursor = Cursors.Hand;
             comboPaquetesID.FormattingEnabled = true;
-            comboPaquetesID.Location = new Point(420, 223);
+            comboPaquetesID.Location = new Point(421, 226);
             comboPaquetesID.Name = "comboPaquetesID";
             comboPaquetesID.Size = new Size(121, 23);
-            comboPaquetesID.TabIndex = 37;
+            comboPaquetesID.TabIndex = 83;
             // 
             // comboClienteID
             // 
             comboClienteID.Cursor = Cursors.Hand;
             comboClienteID.FormattingEnabled = true;
-            comboClienteID.Location = new Point(260, 340);
+            comboClienteID.Location = new Point(261, 343);
             comboClienteID.Name = "comboClienteID";
             comboClienteID.Size = new Size(154, 23);
-            comboClienteID.TabIndex = 36;
+            comboClienteID.TabIndex = 82;
             // 
             // comboSalaID
             // 
             comboSalaID.Cursor = Cursors.Hand;
             comboSalaID.FormattingEnabled = true;
-            comboSalaID.Location = new Point(260, 276);
+            comboSalaID.Location = new Point(261, 279);
             comboSalaID.Name = "comboSalaID";
             comboSalaID.Size = new Size(154, 23);
-            comboSalaID.TabIndex = 35;
+            comboSalaID.TabIndex = 81;
             // 
             // dateFin
             // 
-            dateFin.Location = new Point(19, 340);
+            dateFin.Location = new Point(20, 343);
             dateFin.Name = "dateFin";
             dateFin.Size = new Size(233, 23);
-            dateFin.TabIndex = 34;
+            dateFin.TabIndex = 80;
             // 
             // dateInicio
             // 
-            dateInicio.Location = new Point(19, 276);
+            dateInicio.Location = new Point(20, 279);
             dateInicio.Name = "dateInicio";
             dateInicio.Size = new Size(233, 23);
-            dateInicio.TabIndex = 33;
+            dateInicio.TabIndex = 79;
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(19, 223);
+            txtNombre.Location = new Point(20, 226);
             txtNombre.Name = "txtNombre";
             txtNombre.PlaceholderText = "Ingrese el nombre del evento";
             txtNombre.Size = new Size(233, 23);
-            txtNombre.TabIndex = 32;
+            txtNombre.TabIndex = 78;
             // 
             // txtDescripcion
             // 
-            txtDescripcion.Location = new Point(260, 223);
+            txtDescripcion.Location = new Point(261, 226);
             txtDescripcion.Name = "txtDescripcion";
             txtDescripcion.PlaceholderText = "Ingrese una descripcion";
             txtDescripcion.Size = new Size(154, 23);
-            txtDescripcion.TabIndex = 31;
+            txtDescripcion.TabIndex = 77;
             // 
             // label7
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 12F);
-            label7.Location = new Point(420, 197);
+            label7.Location = new Point(421, 200);
             label7.Name = "label7";
             label7.Size = new Size(72, 21);
-            label7.TabIndex = 30;
+            label7.TabIndex = 76;
             label7.Text = "Paquetes";
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 12F);
-            label6.Location = new Point(260, 316);
+            label6.Location = new Point(261, 319);
             label6.Name = "label6";
             label6.Size = new Size(58, 21);
-            label6.TabIndex = 29;
+            label6.TabIndex = 75;
             label6.Text = "Cliente";
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 12F);
-            label5.Location = new Point(260, 252);
+            label5.Location = new Point(261, 255);
             label5.Name = "label5";
             label5.Size = new Size(39, 21);
-            label5.TabIndex = 28;
+            label5.TabIndex = 74;
             label5.Text = "Sala";
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F);
-            label4.Location = new Point(260, 197);
+            label4.Location = new Point(261, 200);
             label4.Name = "label4";
             label4.Size = new Size(91, 21);
-            label4.TabIndex = 27;
+            label4.TabIndex = 73;
             label4.Text = "Descripcion";
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F);
-            label3.Location = new Point(19, 316);
+            label3.Location = new Point(20, 319);
             label3.Name = "label3";
             label3.Size = new Size(75, 21);
-            label3.TabIndex = 26;
+            label3.TabIndex = 72;
             label3.Text = "Fecha Fin";
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F);
-            label2.Location = new Point(19, 252);
+            label2.Location = new Point(20, 255);
             label2.Name = "label2";
             label2.Size = new Size(91, 21);
-            label2.TabIndex = 25;
+            label2.TabIndex = 71;
             label2.Text = "Fecha Inicio";
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F);
-            label1.Location = new Point(19, 197);
+            label1.Location = new Point(20, 200);
             label1.Name = "label1";
             label1.Size = new Size(144, 21);
-            label1.TabIndex = 24;
+            label1.TabIndex = 70;
             label1.Text = "Nombre del evento";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(20, 9);
+            label10.Name = "label10";
+            label10.Size = new Size(132, 15);
+            label10.TabIndex = 92;
+            label10.Text = "Eventos Adminisstrador";
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(19, 30);
+            dataGridView1.Location = new Point(12, 27);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(708, 149);
-            dataGridView1.TabIndex = 23;
+            dataGridView1.Size = new Size(725, 150);
+            dataGridView1.TabIndex = 93;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // Eventos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(749, 411);
+            Controls.Add(dataGridView1);
+            Controls.Add(label10);
             Controls.Add(comboEstado);
             Controls.Add(label9);
             Controls.Add(comboEmpleadoID);
@@ -290,7 +306,6 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(dataGridView1);
             Name = "Eventos";
             Text = "Eventos";
             Load += Eventos_Load;
@@ -323,6 +338,7 @@
         private Label label3;
         private Label label2;
         private Label label1;
+        private Label label10;
         private DataGridView dataGridView1;
     }
 }
