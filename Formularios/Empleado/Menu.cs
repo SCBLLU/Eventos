@@ -61,5 +61,10 @@ namespace Eventos.Formularios.Empleado
         {
             CargarFormularios(new Clientes());
         }
+
+        private void btnFacturas_Click(object sender, EventArgs e)
+        {
+            CargarFormularios(new Facturas());
+        }
     }
 }
