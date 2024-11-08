@@ -142,13 +142,35 @@ namespace Eventos.Formularios.Empleado
         {
             using (var contexto = new EventosContext())
             {
-                evento = contexto.Eventos.ToList();
-                dataGridView1.DataSource = evento;
-                dataGridView1.Columns["Cliente"].Visible = false;
-                dataGridView1.Columns["Empleado"].Visible = false;
-                dataGridView1.Columns["Facturas"].Visible = false;
-                dataGridView1.Columns["Paquete"].Visible = false;
-                dataGridView1.Columns["Sala"].Visible = false;
+                var eventos = contexto.Eventos
+                    .Select(e => new
+                    {
+                        e.EventoId,
+                        e.NombreEvento,
+                        e.FechaInicio,
+                        e.FechaFin,
+                        e.Descripcion,
+
+                        SalaId = e.Sala.SalaId,
+                        ClienteId = e.Cliente.ClienteId,
+                        PaqueteId = e.Paquete.PaqueteId,
+                        EmpleadoId = e.Empleado.EmpleadoId,
+
+                        Sala = e.Sala.NombreSala,
+                        Cliente = e.Cliente.Nombre,
+                        Paquete = e.Paquete.NombrePaquete,
+                        Empleado = e.Empleado.Nombre,
+
+                        e.Estado,
+                    }).ToList();
+                dataGridView1.DataSource = eventos;
+
+                // Ocultar Ids
+                dataGridView1.Columns["EventoId"].Visible = false;
+                dataGridView1.Columns["SalaId"].Visible = false;
+                dataGridView1.Columns["ClienteId"].Visible = false;
+                dataGridView1.Columns["PaqueteId"].Visible = false;
+                dataGridView1.Columns["EmpleadoId"].Visible = false;
             }
         }
 

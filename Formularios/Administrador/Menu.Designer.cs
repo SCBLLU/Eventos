@@ -205,7 +205,7 @@
             Controls.Add(Contenedor);
             Controls.Add(panel1);
             Controls.Add(MenuLateral);
-            MinimumSize = new Size(800, 460);
+            MinimumSize = new Size(975, 560);
             Name = "Menu";
             Text = "Menu";
             Load += Menu_Load;

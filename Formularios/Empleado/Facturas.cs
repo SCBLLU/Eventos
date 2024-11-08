@@ -36,7 +36,34 @@ namespace Eventos.Formularios.Empleado
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
+            string filtro = txtBuscar.Text.ToLower();
+            using (var contexto = new EventosContext())
+            {
+                var facturas = contexto.Facturas
+                    .Where(f => f.Evento.NombreEvento.ToLower().Contains(filtro) ||
+                                f.Cliente.Nombre.ToLower().Contains(filtro) ||
+                                f.MontoTotal.ToString().Contains(filtro) ||
+                                f.FechaFactura.ToString().Contains(filtro) ||
+                                f.Estado.ToLower().Contains(filtro))
+                    .Select(f => new
+                    {
+                        f.FacturaId,
+                        EventoId = f.Evento.EventoId,
+                        ClienteId = f.Cliente.ClienteId,
+                        Evento = f.Evento.NombreEvento,
+                        Cliente = f.Cliente.Nombre,
+                        Monto = f.MontoTotal,
+                        Facturacion = f.FechaFactura,
+                        f.Estado
+                    })
+                    .ToList();
+                dataGridView1.DataSource = facturas;
 
+                // Ocultar las columnas de ID
+                dataGridView1.Columns["FacturaId"].Visible = false;
+                dataGridView1.Columns["EventoId"].Visible = false;
+                dataGridView1.Columns["ClienteId"].Visible = false;
+            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -46,8 +73,8 @@ namespace Eventos.Formularios.Empleado
                 txtID.Text = dataGridView1.CurrentRow.Cells["FacturaId"].Value.ToString();
                 comboEvento.SelectedValue = dataGridView1.CurrentRow.Cells["EventoId"].Value;
                 comboCliente.SelectedValue = dataGridView1.CurrentRow.Cells["ClienteId"].Value;
-                inputMonto.Text = dataGridView1.CurrentRow.Cells["MontoTotal"].Value.ToString();
-                dateFecha.Text = dataGridView1.CurrentRow.Cells["FechaFactura"].Value.ToString();
+                inputMonto.Text = dataGridView1.CurrentRow.Cells["Monto"].Value.ToString();
+                dateFecha.Text = dataGridView1.CurrentRow.Cells["Facturacion"].Value.ToString();
             }
         }
 
@@ -134,6 +161,8 @@ namespace Eventos.Formularios.Empleado
                     .Select(f => new
                     {
                         f.FacturaId,
+                        EventoId = f.Evento.EventoId,
+                        ClienteId = f.Cliente.ClienteId,
                         Evento = f.Evento.NombreEvento,
                         Cliente = f.Cliente.Nombre,
                         Monto = f.MontoTotal,
@@ -142,6 +171,11 @@ namespace Eventos.Formularios.Empleado
                     })
                     .ToList();
                 dataGridView1.DataSource = facturas;
+
+                // Ocultar las columnas de ID
+                dataGridView1.Columns["FacturaId"].Visible = false;
+                dataGridView1.Columns["EventoId"].Visible = false;
+                dataGridView1.Columns["ClienteId"].Visible = false;
             }
         }
 

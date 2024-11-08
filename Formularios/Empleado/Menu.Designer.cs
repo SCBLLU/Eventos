@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             MenuLateral = new Panel();
+            btnFacturas = new Button();
             btnClientes = new Button();
             btnEventos = new Button();
             btnSalir = new Button();
@@ -37,7 +38,6 @@
             pictureBox1 = new PictureBox();
             panel1 = new Panel();
             Contenedor = new Panel();
-            btnFacturas = new Button();
             MenuLateral.SuspendLayout();
             Logo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -57,6 +57,22 @@
             MenuLateral.Name = "MenuLateral";
             MenuLateral.Size = new Size(194, 521);
             MenuLateral.TabIndex = 1;
+            // 
+            // btnFacturas
+            // 
+            btnFacturas.BackColor = Color.White;
+            btnFacturas.Dock = DockStyle.Top;
+            btnFacturas.FlatStyle = FlatStyle.Flat;
+            btnFacturas.Font = new Font("Segoe UI", 12F);
+            btnFacturas.Location = new Point(0, 177);
+            btnFacturas.Name = "btnFacturas";
+            btnFacturas.Padding = new Padding(15, 0, 0, 0);
+            btnFacturas.Size = new Size(194, 50);
+            btnFacturas.TabIndex = 8;
+            btnFacturas.Text = "Facturas";
+            btnFacturas.TextAlign = ContentAlignment.MiddleLeft;
+            btnFacturas.UseVisualStyleBackColor = false;
+            btnFacturas.Click += btnFacturas_Click;
             // 
             // btnClientes
             // 
@@ -133,7 +149,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(194, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(765, 71);
+            panel1.Size = new Size(760, 71);
             panel1.TabIndex = 3;
             // 
             // Contenedor
@@ -142,33 +158,18 @@
             Contenedor.Dock = DockStyle.Fill;
             Contenedor.Location = new Point(194, 71);
             Contenedor.Name = "Contenedor";
-            Contenedor.Size = new Size(765, 450);
+            Contenedor.Size = new Size(760, 450);
             Contenedor.TabIndex = 4;
-            // 
-            // btnFacturas
-            // 
-            btnFacturas.BackColor = Color.White;
-            btnFacturas.Dock = DockStyle.Top;
-            btnFacturas.FlatStyle = FlatStyle.Flat;
-            btnFacturas.Font = new Font("Segoe UI", 12F);
-            btnFacturas.Location = new Point(0, 177);
-            btnFacturas.Name = "btnFacturas";
-            btnFacturas.Padding = new Padding(15, 0, 0, 0);
-            btnFacturas.Size = new Size(194, 50);
-            btnFacturas.TabIndex = 8;
-            btnFacturas.Text = "Facturas";
-            btnFacturas.TextAlign = ContentAlignment.MiddleLeft;
-            btnFacturas.UseVisualStyleBackColor = false;
-            btnFacturas.Click += btnFacturas_Click;
             // 
             // Menu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(959, 521);
+            ClientSize = new Size(954, 521);
             Controls.Add(Contenedor);
             Controls.Add(panel1);
             Controls.Add(MenuLateral);
+            MinimumSize = new Size(970, 560);
             Name = "Menu";
             Text = "Menu";
             Load += Menu_Load;
