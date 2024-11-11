@@ -29,6 +29,21 @@ namespace Eventos.Formularios.Administrador
             CargarRoles();
         }
 
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                txtNombre.Text = dataGridView1.CurrentRow.Cells["Nombre"].Value.ToString();
+                txtApellido.Text = dataGridView1.CurrentRow.Cells["Apellido"].Value.ToString();
+                cmbRol.Text = dataGridView1.CurrentRow.Cells["Rol"].Value.ToString();
+                txtCorreo.Text = dataGridView1.CurrentRow.Cells["Email"].Value.ToString();
+                txtTelefono.Text = dataGridView1.CurrentRow.Cells["Telefono"].Value.ToString();
+                txtUsuario.Text = dataGridView1.CurrentRow.Cells["NombreUsuario"].Value.ToString();
+                txtContraseña.Text = dataGridView1.CurrentRow.Cells["Contraseña"].Value.ToString();
+                txtID.Text = dataGridView1.CurrentRow.Cells["EmpleadoId"].Value.ToString();
+            }
+        }
+
         private void btbAgregar_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrEmpty(txtApellido.Text) || string.IsNullOrEmpty(cmbRol.Text) || string.IsNullOrEmpty(txtCorreo.Text) || string.IsNullOrEmpty(txtTelefono.Text) || string.IsNullOrEmpty(txtUsuario.Text) || string.IsNullOrEmpty(txtContraseña.Text))
@@ -108,27 +123,14 @@ namespace Eventos.Formularios.Administrador
             }
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                txtNombre.Text = dataGridView1.CurrentRow.Cells["Nombre"].Value.ToString();
-                txtApellido.Text = dataGridView1.CurrentRow.Cells["Apellido"].Value.ToString();
-                cmbRol.Text = dataGridView1.CurrentRow.Cells["Rol"].Value.ToString();
-                txtCorreo.Text = dataGridView1.CurrentRow.Cells["Email"].Value.ToString();
-                txtTelefono.Text = dataGridView1.CurrentRow.Cells["Telefono"].Value.ToString();
-                txtUsuario.Text = dataGridView1.CurrentRow.Cells["NombreUsuario"].Value.ToString();
-                txtContraseña.Text = dataGridView1.CurrentRow.Cells["Contraseña"].Value.ToString();
-                txtID.Text = dataGridView1.CurrentRow.Cells["EmpleadoId"].Value.ToString();
-            }
-        }
-
         private void CargarEmpleados()
         {
             using (var context = new EventosContext())
             {
                 var empleados = context.Empleados.ToList();
                 dataGridView1.DataSource = empleados;
+                dataGridView1.Columns["EmpleadoId"].Visible = false;
+                dataGridView1.Columns["Eventos"].Visible = false;
             }
         }
 
@@ -156,11 +158,6 @@ namespace Eventos.Formularios.Administrador
             txtUsuario.Text = "";
             txtContraseña.Text = "";
             txtID.Text = "";
-        }
-
-        private void cmbRol_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

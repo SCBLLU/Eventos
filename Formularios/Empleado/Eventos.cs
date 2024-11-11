@@ -1,6 +1,7 @@
 ﻿using Eventos.Clases;
 using Eventos.Formularios.Administrador;
 using Eventos.Modelos;
+using Microsoft.EntityFrameworkCore.Query.Internal;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,11 +16,11 @@ namespace Eventos.Formularios.Empleado
 {
     public partial class Eventos : Form
     {
-        private List<Evento> evento;
-        private List<Sala> sala;
-        private List<Cliente> cliente;
-        private List<Empleados> empleado;
-        private List<Paquete> paquete;
+        private List<Evento> eventos;
+        private List<Sala> salas;
+        private List<Cliente> clientes;
+        private List<Empleados> empleados;
+        private List<Paquete> paquetes;
 
         CRUDEventos crudEventos = new CRUDEventos();
 
@@ -33,8 +34,8 @@ namespace Eventos.Formularios.Empleado
             CargarEventos();
             CargarSalas();
             CargarClientes();
-            CargarEmpleados();
             CargarPaquetes();
+            CargarEmpleados();
             CargarEstados();
         }
 
@@ -47,12 +48,12 @@ namespace Eventos.Formularios.Empleado
                 dateInicio.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells["FechaInicio"].Value.ToString());
                 dateFin.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells["FechaFin"].Value.ToString());
                 txtDescripcion.Text = dataGridView1.CurrentRow.Cells["Descripcion"].Value.ToString();
+                comboEstado.Text = dataGridView1.CurrentRow.Cells["Estado"].Value.ToString();
                 comboSalaID.SelectedValue = dataGridView1.CurrentRow.Cells["SalaId"].Value;
                 comboClienteID.SelectedValue = dataGridView1.CurrentRow.Cells["ClienteId"].Value;
                 comboEmpleadoID.SelectedValue = dataGridView1.CurrentRow.Cells["EmpleadoId"].Value;
                 comboPaquetesID.SelectedValue = dataGridView1.CurrentRow.Cells["PaqueteId"].Value;
             }
-
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -66,7 +67,7 @@ namespace Eventos.Formularios.Empleado
             DialogResult dialogResult = MessageBox.Show("¿Está seguro de que desea crear este evento?", "Crear Evento", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                var evento = new Modelos.Evento
+                var evento = new Evento
                 {
                     NombreEvento = txtNombre.Text,
                     FechaInicio = dateInicio.Value,
@@ -74,8 +75,8 @@ namespace Eventos.Formularios.Empleado
                     Descripcion = txtDescripcion.Text,
                     SalaId = (int)comboSalaID.SelectedValue,
                     ClienteId = (int)comboClienteID.SelectedValue,
-                    PaqueteId = (int)comboPaquetesID.SelectedValue,
                     EmpleadoId = (int)comboEmpleadoID.SelectedValue,
+                    PaqueteId = (int)comboPaquetesID.SelectedValue,
                     Estado = comboEstado.Text
                 };
 
@@ -96,7 +97,7 @@ namespace Eventos.Formularios.Empleado
             DialogResult dialogResult = MessageBox.Show("¿Está seguro de que desea editar este evento?", "Editar Evento", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                var evento = new Modelos.Evento
+                var evento = new Evento
                 {
                     EventoId = int.Parse(txtID.Text),
                     NombreEvento = txtNombre.Text,
@@ -105,8 +106,8 @@ namespace Eventos.Formularios.Empleado
                     Descripcion = txtDescripcion.Text,
                     SalaId = (int)comboSalaID.SelectedValue,
                     ClienteId = (int)comboClienteID.SelectedValue,
-                    PaqueteId = (int)comboPaquetesID.SelectedValue,
                     EmpleadoId = (int)comboEmpleadoID.SelectedValue,
+                    PaqueteId = (int)comboPaquetesID.SelectedValue,
                     Estado = comboEstado.Text
                 };
 
@@ -127,7 +128,7 @@ namespace Eventos.Formularios.Empleado
             DialogResult dialogResult = MessageBox.Show("¿Está seguro de que desea eliminar este evento?", "Eliminar Evento", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                var evento = new Modelos.Evento
+                var evento = new Evento
                 {
                     EventoId = int.Parse(txtID.Text)
                 };
@@ -178,8 +179,8 @@ namespace Eventos.Formularios.Empleado
         {
             using (var contexto = new EventosContext())
             {
-                sala = contexto.Salas.ToList();
-                comboSalaID.DataSource = sala;
+                var salas = contexto.Salas.ToList();
+                comboSalaID.DataSource = salas;
                 comboSalaID.DisplayMember = "NombreSala";
                 comboSalaID.ValueMember = "SalaId";
             }
@@ -189,8 +190,8 @@ namespace Eventos.Formularios.Empleado
         {
             using (var contexto = new EventosContext())
             {
-                cliente = contexto.Clientes.ToList();
-                comboClienteID.DataSource = cliente;
+                var clientes = contexto.Clientes.ToList();
+                comboClienteID.DataSource = clientes;
                 comboClienteID.DisplayMember = "Nombre";
                 comboClienteID.ValueMember = "ClienteId";
             }
@@ -200,8 +201,8 @@ namespace Eventos.Formularios.Empleado
         {
             using (var contexto = new EventosContext())
             {
-                paquete = contexto.Paquetes.ToList();
-                comboPaquetesID.DataSource = paquete;
+                var paquetes = contexto.Paquetes.ToList();
+                comboPaquetesID.DataSource = paquetes;
                 comboPaquetesID.DisplayMember = "NombrePaquete";
                 comboPaquetesID.ValueMember = "PaqueteId";
             }
@@ -209,9 +210,9 @@ namespace Eventos.Formularios.Empleado
 
         private void CargarEmpleados()
         {
-            using (var context = new EventosContext())
+            using (var contexto = new EventosContext())
             {
-                var empleados = context.Empleados.ToList();
+                var empleados = contexto.Empleados.ToList();
                 comboEmpleadoID.DataSource = empleados;
                 comboEmpleadoID.DisplayMember = "Nombre";
                 comboEmpleadoID.ValueMember = "EmpleadoId";
@@ -220,8 +221,17 @@ namespace Eventos.Formularios.Empleado
 
         private void CargarEstados()
         {
-            var estados = new List<string> { "Pendiente", "En curso", "Completado", "Cancelado" };
-            comboEstado.DataSource = estados;
+            using (var context = new EventosContext())
+            {
+                var estados = new List<string>
+                {
+                    "Pendiente",
+                    "En curso",
+                    "Completado",
+                    "Cancelado"
+                };
+                comboEstado.DataSource = estados;
+            }
         }
 
         private void LimpiarCampos()
@@ -231,11 +241,52 @@ namespace Eventos.Formularios.Empleado
             dateInicio.Value = DateTime.Now;
             dateFin.Value = DateTime.Now;
             txtDescripcion.Text = "";
+            comboEstado.Text = "";
             comboSalaID.SelectedIndex = 0;
             comboClienteID.SelectedIndex = 0;
-            comboPaquetesID.SelectedIndex = 0;
             comboEmpleadoID.SelectedIndex = 0;
-            comboEstado.SelectedIndex = 0;
+            comboPaquetesID.SelectedIndex = 0;
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            string filtro = txtBuscar.Text.ToLower();
+            using (var contexto = new EventosContext())
+            {
+                var eventosFiltrados = contexto.Eventos
+                    .Where(e => e.NombreEvento.ToLower().Contains(filtro) ||
+                                e.Descripcion.ToLower().Contains(filtro) ||
+                                e.Sala.NombreSala.ToLower().Contains(filtro) ||
+                                e.Cliente.Nombre.ToLower().Contains(filtro) ||
+                                e.Empleado.Nombre.ToLower().Contains(filtro) ||
+                                e.Paquete.NombrePaquete.ToLower().Contains(filtro) ||
+                                e.Estado.ToLower().Contains(filtro))
+                    .Select(e => new
+                    {
+                        e.EventoId,
+                        e.NombreEvento,
+                        e.FechaInicio,
+                        e.FechaFin,
+                        e.Descripcion,
+                        SalaId = e.Sala.SalaId,
+                        ClienteId = e.Cliente.ClienteId,
+                        PaqueteId = e.Paquete.PaqueteId,
+                        EmpleadoId = e.Empleado.EmpleadoId,
+                        Sala = e.Sala.NombreSala,
+                        Cliente = e.Cliente.Nombre,
+                        Paquete = e.Paquete.NombrePaquete,
+                        Empleado = e.Empleado.Nombre,
+                        e.Estado,
+                    }).ToList();
+                dataGridView1.DataSource = eventosFiltrados;
+
+                // Ocultar Ids
+                dataGridView1.Columns["EventoId"].Visible = false;
+                dataGridView1.Columns["SalaId"].Visible = false;
+                dataGridView1.Columns["ClienteId"].Visible = false;
+                dataGridView1.Columns["PaqueteId"].Visible = false;
+                dataGridView1.Columns["EmpleadoId"].Visible = false;
+            }
         }
     }
 }

@@ -68,6 +68,7 @@
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
+            groupBox1.Font = new Font("Segoe UI", 9F);
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(211, 381);
@@ -77,10 +78,12 @@
             // 
             // txtID
             // 
+            txtID.Enabled = false;
             txtID.Location = new Point(6, 352);
             txtID.Name = "txtID";
             txtID.Size = new Size(41, 23);
             txtID.TabIndex = 6;
+            txtID.Visible = false;
             // 
             // txtArticulos
             // 

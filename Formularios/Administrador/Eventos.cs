@@ -46,6 +46,7 @@ namespace Eventos.Formularios.Administrador
                 dateInicio.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells["FechaInicio"].Value.ToString());
                 dateFin.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells["FechaFin"].Value.ToString());
                 txtDescripcion.Text = dataGridView1.CurrentRow.Cells["Descripcion"].Value.ToString();
+                comboEstado.Text = dataGridView1.CurrentRow.Cells["Estado"].Value.ToString();
                 comboSalaID.SelectedValue = dataGridView1.CurrentRow.Cells["SalaId"].Value;
                 comboClienteID.SelectedValue = dataGridView1.CurrentRow.Cells["ClienteId"].Value;
                 comboEmpleadoID.SelectedValue = dataGridView1.CurrentRow.Cells["EmpleadoId"].Value;
@@ -219,14 +220,17 @@ namespace Eventos.Formularios.Administrador
 
         private void CargarEstados()
         {
-            var estados = new List<string>
+            using (var context = new EventosContext())
             {
-                "Pendiente",
-                "En curso",
-                "Completado",
-                "Cancelado"
-            };
-            comboEstado.DataSource = estados;
+                var estados = new List<string>
+                {
+                    "Pendiente",
+                    "En curso",
+                    "Completado",
+                    "Cancelado"
+                };
+                comboEstado.DataSource = estados;
+            }
         }
 
         private void LimpiarCampos()
@@ -241,6 +245,47 @@ namespace Eventos.Formularios.Administrador
             comboEmpleadoID.SelectedIndex = 0;
             comboPaquetesID.SelectedIndex = 0;
             comboEstado.SelectedIndex = 0;
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            string filtro = txtBuscar.Text.ToLower();
+            using (var contexto = new EventosContext())
+            {
+                var eventosFiltrados = contexto.Eventos
+                    .Where(e => e.NombreEvento.ToLower().Contains(filtro) ||
+                                e.Descripcion.ToLower().Contains(filtro) ||
+                                e.Sala.NombreSala.ToLower().Contains(filtro) ||
+                                e.Cliente.Nombre.ToLower().Contains(filtro) ||
+                                e.Empleado.Nombre.ToLower().Contains(filtro) ||
+                                e.Paquete.NombrePaquete.ToLower().Contains(filtro) ||
+                                e.Estado.ToLower().Contains(filtro))
+                    .Select(e => new
+                    {
+                        e.EventoId,
+                        e.NombreEvento,
+                        e.FechaInicio,
+                        e.FechaFin,
+                        e.Descripcion,
+                        SalaId = e.Sala.SalaId,
+                        ClienteId = e.Cliente.ClienteId,
+                        PaqueteId = e.Paquete.PaqueteId,
+                        EmpleadoId = e.Empleado.EmpleadoId,
+                        Sala = e.Sala.NombreSala,
+                        Cliente = e.Cliente.Nombre,
+                        Paquete = e.Paquete.NombrePaquete,
+                        Empleado = e.Empleado.Nombre,
+                        e.Estado,
+                    }).ToList();
+                dataGridView1.DataSource = eventosFiltrados;
+
+                // Ocultar Ids
+                dataGridView1.Columns["EventoId"].Visible = false;
+                dataGridView1.Columns["SalaId"].Visible = false;
+                dataGridView1.Columns["ClienteId"].Visible = false;
+                dataGridView1.Columns["PaqueteId"].Visible = false;
+                dataGridView1.Columns["EmpleadoId"].Visible = false;
+            }
         }
     }
 }

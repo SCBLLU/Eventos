@@ -58,51 +58,58 @@
             // 
             // txtID
             // 
-            txtID.Location = new Point(365, 345);
+            txtID.Enabled = false;
+            txtID.Location = new Point(411, 345);
             txtID.Name = "txtID";
-            txtID.Size = new Size(115, 23);
+            txtID.Size = new Size(47, 23);
             txtID.TabIndex = 62;
+            txtID.Visible = false;
             // 
             // txtDireccion
             // 
-            txtDireccion.Location = new Point(365, 286);
+            txtDireccion.Location = new Point(411, 286);
             txtDireccion.Name = "txtDireccion";
-            txtDireccion.Size = new Size(115, 23);
+            txtDireccion.PlaceholderText = "Ingrese el direccion del cliente";
+            txtDireccion.Size = new Size(170, 23);
             txtDireccion.TabIndex = 61;
             // 
             // txtTelefono
             // 
-            txtTelefono.Location = new Point(191, 345);
+            txtTelefono.Location = new Point(209, 345);
             txtTelefono.Name = "txtTelefono";
-            txtTelefono.Size = new Size(138, 23);
+            txtTelefono.PlaceholderText = "Ingrese el telefono del cliente";
+            txtTelefono.Size = new Size(170, 23);
             txtTelefono.TabIndex = 60;
             // 
             // txtCorreo
             // 
-            txtCorreo.Location = new Point(191, 286);
+            txtCorreo.Location = new Point(209, 286);
             txtCorreo.Name = "txtCorreo";
-            txtCorreo.Size = new Size(138, 23);
+            txtCorreo.PlaceholderText = "Ingrese el correo del cliente";
+            txtCorreo.Size = new Size(170, 23);
             txtCorreo.TabIndex = 59;
             // 
             // txtApellido
             // 
             txtApellido.Location = new Point(15, 345);
             txtApellido.Name = "txtApellido";
-            txtApellido.Size = new Size(138, 23);
+            txtApellido.PlaceholderText = "Ingrese el apellido del cliente";
+            txtApellido.Size = new Size(170, 23);
             txtApellido.TabIndex = 58;
             // 
             // txtNombre
             // 
             txtNombre.Location = new Point(14, 286);
             txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(139, 23);
+            txtNombre.PlaceholderText = "Ingrese el nombre del cliente";
+            txtNombre.Size = new Size(171, 23);
             txtNombre.TabIndex = 57;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 12F);
-            label5.Location = new Point(365, 262);
+            label5.Location = new Point(411, 262);
             label5.Name = "label5";
             label5.Size = new Size(75, 21);
             label5.TabIndex = 56;
@@ -112,7 +119,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F);
-            label4.Location = new Point(191, 321);
+            label4.Location = new Point(209, 321);
             label4.Name = "label4";
             label4.Size = new Size(141, 21);
             label4.TabIndex = 55;
@@ -122,7 +129,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F);
-            label3.Location = new Point(191, 262);
+            label3.Location = new Point(209, 262);
             label3.Name = "label3";
             label3.Size = new Size(138, 21);
             label3.TabIndex = 54;

@@ -116,6 +116,7 @@ namespace Eventos.Formularios.Administrador
             {
                 var paquetes = bd.Paquetes.ToList();
                 dataGridView1.DataSource = paquetes;
+                dataGridView1.Columns["PaqueteId"].Visible = false;
                 dataGridView1.Columns["Eventos"].Visible = false;
             }
         }

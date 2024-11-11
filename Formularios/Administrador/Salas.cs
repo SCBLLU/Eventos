@@ -113,13 +113,12 @@ namespace Eventos.Formularios.Administrador
 
         private void CargarSalas()
         {
-            // Cargar las salas desde la base de datos y enlazarlas al DataGridView
             using (var context = new EventosContext())
             {
                 var salas = context.Salas.ToList();
                 dataGridView1.DataSource = salas;
+                dataGridView1.Columns["SalaId"].Visible = false;
                 dataGridView1.Columns["Eventos"].Visible = false;
-
             }
         }
 

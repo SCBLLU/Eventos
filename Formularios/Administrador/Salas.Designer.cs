@@ -90,10 +90,12 @@
             // 
             // txtID
             // 
+            txtID.Enabled = false;
             txtID.Location = new Point(493, 17);
             txtID.Name = "txtID";
             txtID.Size = new Size(41, 23);
             txtID.TabIndex = 13;
+            txtID.Visible = false;
             // 
             // txtUbicacion
             // 

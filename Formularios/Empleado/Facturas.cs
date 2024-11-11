@@ -34,38 +34,6 @@ namespace Eventos.Formularios.Empleado
             CargarEstadoFactura();
         }
 
-        private void txtBuscar_TextChanged(object sender, EventArgs e)
-        {
-            string filtro = txtBuscar.Text.ToLower();
-            using (var contexto = new EventosContext())
-            {
-                var facturas = contexto.Facturas
-                    .Where(f => f.Evento.NombreEvento.ToLower().Contains(filtro) ||
-                                f.Cliente.Nombre.ToLower().Contains(filtro) ||
-                                f.MontoTotal.ToString().Contains(filtro) ||
-                                f.FechaFactura.ToString().Contains(filtro) ||
-                                f.Estado.ToLower().Contains(filtro))
-                    .Select(f => new
-                    {
-                        f.FacturaId,
-                        EventoId = f.Evento.EventoId,
-                        ClienteId = f.Cliente.ClienteId,
-                        Evento = f.Evento.NombreEvento,
-                        Cliente = f.Cliente.Nombre,
-                        Monto = f.MontoTotal,
-                        Facturacion = f.FechaFactura,
-                        f.Estado
-                    })
-                    .ToList();
-                dataGridView1.DataSource = facturas;
-
-                // Ocultar las columnas de ID
-                dataGridView1.Columns["FacturaId"].Visible = false;
-                dataGridView1.Columns["EventoId"].Visible = false;
-                dataGridView1.Columns["ClienteId"].Visible = false;
-            }
-        }
-
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
@@ -203,12 +171,47 @@ namespace Eventos.Formularios.Empleado
 
         private void CargarEstadoFactura()
         {
-            var estadoFactura = new List<string>
+            using (var contexto = new EventosContext())
             {
-                "Pendiente",
-                "Pagada"
-            };
-            comboEstado.DataSource = estadoFactura;
+                var estadoFactura = new List<string>
+                {
+                    "Pendiente",
+                    "Pagada"
+                };
+                comboEstado.DataSource = estadoFactura;
+            }
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            string filtro = txtBuscar.Text.ToLower();
+            using (var contexto = new EventosContext())
+            {
+                var facturas = contexto.Facturas
+                    .Where(f => f.Evento.NombreEvento.ToLower().Contains(filtro) ||
+                                f.Cliente.Nombre.ToLower().Contains(filtro) ||
+                                f.MontoTotal.ToString().Contains(filtro) ||
+                                f.FechaFactura.ToString().Contains(filtro) ||
+                                f.Estado.ToLower().Contains(filtro))
+                    .Select(f => new
+                    {
+                        f.FacturaId,
+                        EventoId = f.Evento.EventoId,
+                        ClienteId = f.Cliente.ClienteId,
+                        Evento = f.Evento.NombreEvento,
+                        Cliente = f.Cliente.Nombre,
+                        Monto = f.MontoTotal,
+                        Facturacion = f.FechaFactura,
+                        f.Estado
+                    })
+                    .ToList();
+                dataGridView1.DataSource = facturas;
+
+                // Ocultar las columnas de ID
+                dataGridView1.Columns["FacturaId"].Visible = false;
+                dataGridView1.Columns["EventoId"].Visible = false;
+                dataGridView1.Columns["ClienteId"].Visible = false;
+            }
         }
 
         private void LimpiarCampos()

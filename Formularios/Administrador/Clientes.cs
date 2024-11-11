@@ -139,6 +139,7 @@ namespace Eventos.Formularios.Administrador
             {
                 var clientes = bd.Clientes.ToList();
                 dataGridView1.DataSource = clientes;
+                dataGridView1.Columns["ClienteId"].Visible = false;
                 dataGridView1.Columns["Eventos"].Visible = false;
                 dataGridView1.Columns["Facturas"].Visible = false;
             }
