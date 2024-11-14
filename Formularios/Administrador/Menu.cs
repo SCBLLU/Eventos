@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Eventos.Clases;
+using Eventos.Modelos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -108,32 +110,177 @@ namespace Eventos.Formularios.Administrador
         // Eventos click para los reportes
         private void repoEventos_Click(object sender, EventArgs e)
         {
-            // Cargar el formulario de reportes de eventos
+            // Ocultar el submenú de reportes
             hideSubMenu(panelsubmenureportes);
+
+            // Crear la carpeta "Reportes" en "Documentos" si no existe
+            string defaultFolderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Reportes");
+            if (!Directory.Exists(defaultFolderPath))
+            {
+                Directory.CreateDirectory(defaultFolderPath);
+            }
+
+            // Mostrar un cuadro de diálogo para seleccionar la ubicación del archivo
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                InitialDirectory = defaultFolderPath,
+                Filter = "PDF files (*.pdf)|*.pdf",
+                FileName = "ReporteEventos.pdf"
+            };
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = saveFileDialog.FileName;
+
+                // Generar el reporte en PDF
+                using (var context = new EventosContext())
+                {
+                    GeneradorPDF reportGenerator = new GeneradorPDF(context);
+                    reportGenerator.GenerarReporteEventos(filePath);
+                }
+
+                MessageBox.Show("Reporte de eventos generado en: " + filePath);
+            }
         }
 
         private void repoEmpleados_Click(object sender, EventArgs e)
         {
-            // Cargar el formulario de reportes de empleados
+            // Ocultar el submenú de reportes
             hideSubMenu(panelsubmenureportes);
+
+            // Crear la carpeta "Reportes" en "Documentos" si no existe
+            string defaultFolderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Reportes");
+            if (!Directory.Exists(defaultFolderPath))
+            {
+                Directory.CreateDirectory(defaultFolderPath);
+            }
+
+            // Mostrar un cuadro de diálogo para seleccionar la ubicación del archivo
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                InitialDirectory = defaultFolderPath,
+                Filter = "PDF files (*.pdf)|*.pdf",
+                FileName = "ReporteEmpleados.pdf"
+            };
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = saveFileDialog.FileName;
+
+                // Generar el reporte en PDF
+                using (var context = new EventosContext())
+                {
+                    GeneradorPDF reportGenerator = new GeneradorPDF(context);
+                    reportGenerator.GenerarReporteEmpleados(filePath);
+                }
+
+                MessageBox.Show("Reporte de empleados generado en: " + filePath);
+            }
         }
 
         private void repoSalas_Click(object sender, EventArgs e)
         {
-            // Cargar el formulario de reportes de salas
+            // Ocultar el submenú de reportes
             hideSubMenu(panelsubmenureportes);
+
+            // Crear la carpeta "Reportes" en "Documentos" si no existe
+            string defaultFolderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Reportes");
+            if (!Directory.Exists(defaultFolderPath))
+            {
+                Directory.CreateDirectory(defaultFolderPath);
+            }
+
+            // Mostrar un cuadro de diálogo para seleccionar la ubicación del archivo
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                InitialDirectory = defaultFolderPath,
+                Filter = "PDF files (*.pdf)|*.pdf",
+                FileName = "ReporteSalas.pdf"
+            };
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = saveFileDialog.FileName;
+
+                // Generar el reporte en PDF
+                using (var context = new EventosContext())
+                {
+                    GeneradorPDF reportGenerator = new GeneradorPDF(context);
+                    reportGenerator.GenerarReporteSalas(filePath);
+                }
+
+                MessageBox.Show("Reporte de salas generado en: " + filePath);
+            }
         }
 
         private void repoPaquetes_Click(object sender, EventArgs e)
         {
-            // Cargar el formulario de reportes de paquetes
+            // Ocultar el submenú de reportes
             hideSubMenu(panelsubmenureportes);
+
+            // Crear la carpeta "Reportes" en "Documentos" si no existe
+            string defaultFolderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Reportes");
+            if (!Directory.Exists(defaultFolderPath))
+            {
+                Directory.CreateDirectory(defaultFolderPath);
+            }
+
+            // Mostrar un cuadro de diálogo para seleccionar la ubicación del archivo
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                InitialDirectory = defaultFolderPath,
+                Filter = "PDF files (*.pdf)|*.pdf",
+                FileName = "ReportePaquetes.pdf"
+            };
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = saveFileDialog.FileName;
+
+                // Generar el reporte en PDF
+                using (var context = new EventosContext())
+                {
+                    GeneradorPDF reportGenerator = new GeneradorPDF(context);
+                    reportGenerator.GenerarReportePaquetes(filePath);
+                }
+
+                MessageBox.Show("Reporte de paquetes generado en: " + filePath);
+            }
         }
 
         private void repoClientes_Click(object sender, EventArgs e)
         {
-            // Cargar el formulario de reportes de clientes
+            // Ocultar el submenú de reportes
             hideSubMenu(panelsubmenureportes);
+
+            // Crear la carpeta "Reportes" en "Documentos" si no existe
+            string defaultFolderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Reportes");
+            if (!Directory.Exists(defaultFolderPath))
+            {
+                Directory.CreateDirectory(defaultFolderPath);
+            }
+
+            // Mostrar un cuadro de diálogo para seleccionar la ubicación del archivo
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                InitialDirectory = defaultFolderPath,
+                Filter = "PDF files (*.pdf)|*.pdf",
+                FileName = "ReporteClientes.pdf"
+            };
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = saveFileDialog.FileName;
+
+                // Generar el reporte en PDF
+                using (var context = new EventosContext())
+                {
+                    GeneradorPDF reportGenerator = new GeneradorPDF(context);
+                    reportGenerator.GenerarReporteClientes(filePath);
+                }
+
+                MessageBox.Show("Reporte de clientes generado en: " + filePath);
+            }
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
