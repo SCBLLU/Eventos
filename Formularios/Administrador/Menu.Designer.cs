@@ -46,8 +46,8 @@
             Logo = new Panel();
             pictureBox1 = new PictureBox();
             panel1 = new Panel();
-            Contenedor = new Panel();
             label1 = new Label();
+            Contenedor = new Panel();
             MenuLateral.SuspendLayout();
             panelsubmenureportes.SuspendLayout();
             Logo.SuspendLayout();
@@ -93,11 +93,11 @@
             // 
             repoClientes.Dock = DockStyle.Top;
             repoClientes.Font = new Font("Segoe UI", 10F);
-            repoClientes.Location = new Point(0, 128);
+            repoClientes.Location = new Point(0, 200);
             repoClientes.Margin = new Padding(0);
             repoClientes.Name = "repoClientes";
             repoClientes.Padding = new Padding(30, 0, 0, 0);
-            repoClientes.Size = new Size(177, 32);
+            repoClientes.Size = new Size(177, 50);
             repoClientes.TabIndex = 4;
             repoClientes.Text = "Reportes Clientes";
             repoClientes.TextAlign = ContentAlignment.MiddleLeft;
@@ -108,11 +108,11 @@
             // 
             repoPaquetes.Dock = DockStyle.Top;
             repoPaquetes.Font = new Font("Segoe UI", 10F);
-            repoPaquetes.Location = new Point(0, 96);
+            repoPaquetes.Location = new Point(0, 150);
             repoPaquetes.Margin = new Padding(0);
             repoPaquetes.Name = "repoPaquetes";
             repoPaquetes.Padding = new Padding(30, 0, 0, 0);
-            repoPaquetes.Size = new Size(177, 32);
+            repoPaquetes.Size = new Size(177, 50);
             repoPaquetes.TabIndex = 3;
             repoPaquetes.Text = "Reportes Paquetes";
             repoPaquetes.TextAlign = ContentAlignment.MiddleLeft;
@@ -123,11 +123,11 @@
             // 
             repoSalas.Dock = DockStyle.Top;
             repoSalas.Font = new Font("Segoe UI", 10F);
-            repoSalas.Location = new Point(0, 64);
+            repoSalas.Location = new Point(0, 100);
             repoSalas.Margin = new Padding(0);
             repoSalas.Name = "repoSalas";
             repoSalas.Padding = new Padding(30, 0, 0, 0);
-            repoSalas.Size = new Size(177, 32);
+            repoSalas.Size = new Size(177, 50);
             repoSalas.TabIndex = 2;
             repoSalas.Text = "Reporte Salas";
             repoSalas.TextAlign = ContentAlignment.MiddleLeft;
@@ -138,11 +138,11 @@
             // 
             repoEmpleados.Dock = DockStyle.Top;
             repoEmpleados.Font = new Font("Segoe UI", 10F);
-            repoEmpleados.Location = new Point(0, 32);
+            repoEmpleados.Location = new Point(0, 50);
             repoEmpleados.Margin = new Padding(0);
             repoEmpleados.Name = "repoEmpleados";
             repoEmpleados.Padding = new Padding(30, 0, 0, 0);
-            repoEmpleados.Size = new Size(177, 32);
+            repoEmpleados.Size = new Size(177, 50);
             repoEmpleados.TabIndex = 1;
             repoEmpleados.Text = "Reporte Empleados";
             repoEmpleados.TextAlign = ContentAlignment.MiddleLeft;
@@ -157,7 +157,7 @@
             repoEventos.Margin = new Padding(0);
             repoEventos.Name = "repoEventos";
             repoEventos.Padding = new Padding(30, 0, 0, 0);
-            repoEventos.Size = new Size(177, 32);
+            repoEventos.Size = new Size(177, 50);
             repoEventos.TabIndex = 0;
             repoEventos.Text = "Reporte Eventos";
             repoEventos.TextAlign = ContentAlignment.MiddleLeft;
@@ -307,15 +307,6 @@
             panel1.Size = new Size(765, 71);
             panel1.TabIndex = 2;
             // 
-            // Contenedor
-            // 
-            Contenedor.BackColor = Color.LightGray;
-            Contenedor.Dock = DockStyle.Fill;
-            Contenedor.Location = new Point(194, 71);
-            Contenedor.Name = "Contenedor";
-            Contenedor.Size = new Size(765, 450);
-            Contenedor.TabIndex = 3;
-            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -325,6 +316,15 @@
             label1.Size = new Size(290, 45);
             label1.TabIndex = 0;
             label1.Text = "Gestor de Eventos";
+            // 
+            // Contenedor
+            // 
+            Contenedor.BackColor = Color.LightGray;
+            Contenedor.Dock = DockStyle.Fill;
+            Contenedor.Location = new Point(194, 71);
+            Contenedor.Name = "Contenedor";
+            Contenedor.Size = new Size(765, 450);
+            Contenedor.TabIndex = 3;
             // 
             // Menu
             // 
