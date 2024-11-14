@@ -63,7 +63,7 @@
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(383, 411);
+            panel1.Size = new Size(383, 444);
             panel1.TabIndex = 0;
             // 
             // dataGridView1
@@ -73,7 +73,7 @@
             dataGridView1.Location = new Point(0, 0);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(383, 411);
+            dataGridView1.Size = new Size(383, 444);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -83,7 +83,7 @@
             panel2.Controls.Add(btnEditar);
             panel2.Controls.Add(btnEliminar);
             panel2.Dock = DockStyle.Bottom;
-            panel2.Location = new Point(383, 350);
+            panel2.Location = new Point(383, 383);
             panel2.Name = "panel2";
             panel2.Size = new Size(366, 61);
             panel2.TabIndex = 1;
@@ -148,30 +148,30 @@
             panel3.Dock = DockStyle.Fill;
             panel3.Location = new Point(383, 0);
             panel3.Name = "panel3";
-            panel3.Size = new Size(366, 350);
+            panel3.Size = new Size(366, 383);
             panel3.TabIndex = 2;
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            label8.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
             label8.Location = new Point(6, 9);
             label8.Name = "label8";
-            label8.Size = new Size(171, 21);
+            label8.Size = new Size(232, 30);
             label8.TabIndex = 18;
             label8.Text = "Gestionar Empleados";
             // 
             // cmbRol
             // 
             cmbRol.FormattingEnabled = true;
-            cmbRol.Location = new Point(82, 126);
+            cmbRol.Location = new Point(83, 150);
             cmbRol.Name = "cmbRol";
             cmbRol.Size = new Size(183, 23);
             cmbRol.TabIndex = 17;
             // 
             // txtContraseña
             // 
-            txtContraseña.Location = new Point(82, 292);
+            txtContraseña.Location = new Point(83, 316);
             txtContraseña.Name = "txtContraseña";
             txtContraseña.PlaceholderText = "Ingrese la contraseña del usuario";
             txtContraseña.Size = new Size(183, 23);
@@ -181,7 +181,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 12F);
-            label7.Location = new Point(8, 294);
+            label7.Location = new Point(9, 318);
             label7.Name = "label7";
             label7.Size = new Size(48, 21);
             label7.TabIndex = 15;
@@ -189,7 +189,7 @@
             // 
             // txtUsuario
             // 
-            txtUsuario.Location = new Point(82, 249);
+            txtUsuario.Location = new Point(83, 273);
             txtUsuario.Name = "txtUsuario";
             txtUsuario.PlaceholderText = "Ingrese el usuario del empleado";
             txtUsuario.Size = new Size(183, 23);
@@ -199,7 +199,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 12F);
-            label6.Location = new Point(8, 251);
+            label6.Location = new Point(9, 275);
             label6.Name = "label6";
             label6.Size = new Size(64, 21);
             label6.TabIndex = 12;
@@ -208,7 +208,7 @@
             // txtID
             // 
             txtID.Enabled = false;
-            txtID.Location = new Point(310, 46);
+            txtID.Location = new Point(311, 70);
             txtID.Name = "txtID";
             txtID.Size = new Size(44, 23);
             txtID.TabIndex = 11;
@@ -216,7 +216,7 @@
             // 
             // txtTelefono
             // 
-            txtTelefono.Location = new Point(82, 206);
+            txtTelefono.Location = new Point(83, 230);
             txtTelefono.Name = "txtTelefono";
             txtTelefono.PlaceholderText = "Ingrese el telefono del empleado";
             txtTelefono.Size = new Size(183, 23);
@@ -224,7 +224,7 @@
             // 
             // txtCorreo
             // 
-            txtCorreo.Location = new Point(82, 164);
+            txtCorreo.Location = new Point(83, 188);
             txtCorreo.Name = "txtCorreo";
             txtCorreo.PlaceholderText = "Ingrese el correo del empleado";
             txtCorreo.Size = new Size(183, 23);
@@ -232,7 +232,7 @@
             // 
             // txtApellido
             // 
-            txtApellido.Location = new Point(82, 85);
+            txtApellido.Location = new Point(83, 109);
             txtApellido.Name = "txtApellido";
             txtApellido.PlaceholderText = "Ingrese el apellido del empleado";
             txtApellido.Size = new Size(183, 23);
@@ -240,7 +240,7 @@
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(82, 46);
+            txtNombre.Location = new Point(83, 70);
             txtNombre.Name = "txtNombre";
             txtNombre.PlaceholderText = "Ingrese el nombre del empleado";
             txtNombre.Size = new Size(183, 23);
@@ -250,7 +250,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 12F);
-            label5.Location = new Point(6, 204);
+            label5.Location = new Point(7, 228);
             label5.Name = "label5";
             label5.Size = new Size(68, 21);
             label5.TabIndex = 4;
@@ -260,7 +260,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F);
-            label4.Location = new Point(6, 162);
+            label4.Location = new Point(7, 186);
             label4.Name = "label4";
             label4.Size = new Size(58, 21);
             label4.TabIndex = 3;
@@ -270,7 +270,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F);
-            label3.Location = new Point(6, 124);
+            label3.Location = new Point(7, 148);
             label3.Name = "label3";
             label3.Size = new Size(33, 21);
             label3.TabIndex = 2;
@@ -280,7 +280,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F);
-            label2.Location = new Point(6, 83);
+            label2.Location = new Point(7, 107);
             label2.Name = "label2";
             label2.Size = new Size(67, 21);
             label2.TabIndex = 1;
@@ -290,7 +290,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F);
-            label1.Location = new Point(6, 44);
+            label1.Location = new Point(7, 68);
             label1.Name = "label1";
             label1.Size = new Size(68, 21);
             label1.TabIndex = 0;
@@ -300,7 +300,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(749, 411);
+            ClientSize = new Size(749, 444);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);

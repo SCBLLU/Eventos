@@ -128,5 +128,19 @@ namespace Eventos.Formularios.Administrador
             txtArticulos.Text = "";
             txtID.Text = "";
         }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            string filtro = txtBuscar.Text.ToLower();
+            using (var bd = new EventosContext())
+            {
+                var paquetesFiltrados = bd.Paquetes
+                    .Where(p => p.NombrePaquete.ToLower().Contains(filtro) ||
+                                p.Descripcion.ToLower().Contains(filtro) ||
+                                p.Articulos.ToLower().Contains(filtro))
+                    .ToList();
+                dataGridView1.DataSource = paquetesFiltrados;
+            }
+        }
     }
 }

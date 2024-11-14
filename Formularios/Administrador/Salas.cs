@@ -42,7 +42,6 @@ namespace Eventos.Formularios.Administrador
 
         private void btnCrear_Click(object sender, EventArgs e)
         {
-
             if (string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrEmpty(txtUbicacion.Text) || string.IsNullOrEmpty(txtCaracteristicas.Text))
             {
                 MessageBox.Show("Por favor, llene todos los campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -69,7 +68,7 @@ namespace Eventos.Formularios.Administrador
         {
             if (string.IsNullOrEmpty(txtID.Text))
             {
-                MessageBox.Show("Por favor, seleccione una sala para editar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Por favor, seleccione una sala.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -94,7 +93,7 @@ namespace Eventos.Formularios.Administrador
         {
             if (string.IsNullOrEmpty(txtID.Text))
             {
-                MessageBox.Show("Por favor, seleccione una sala para eliminar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Por favor, seleccione una sala.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -103,7 +102,11 @@ namespace Eventos.Formularios.Administrador
             {
                 var sala = new Sala
                 {
-                    SalaId = int.Parse(txtID.Text)
+                    SalaId = int.Parse(txtID.Text),
+                    NombreSala = txtNombre.Text,
+                    Capacidad = (int)numCapacidad.Value,
+                    Ubicacion = txtUbicacion.Text,
+                    Caracteristicas = txtCaracteristicas.Text
                 };
                 crudSalas.EliminarSala(sala);
                 CargarSalas();
@@ -131,5 +134,18 @@ namespace Eventos.Formularios.Administrador
             txtID.Text = "";
         }
 
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            string filtro = txtBuscar.Text.ToLower();
+            using (var context = new EventosContext())
+            {
+                var salasFiltradas = context.Salas
+                    .Where(s => s.NombreSala.ToLower().Contains(filtro) ||
+                                s.Ubicacion.ToLower().Contains(filtro) ||
+                                s.Caracteristicas.ToLower().Contains(filtro))
+                    .ToList();
+                dataGridView1.DataSource = salasFiltradas;
+            }
+        }
     }
 }

@@ -44,12 +44,13 @@
             btnEliminar = new Button();
             btnAgregar = new Button();
             dataGridView1 = new DataGridView();
+            label10 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // txtBuscar
             // 
-            txtBuscar.Location = new Point(14, 11);
+            txtBuscar.Location = new Point(12, 51);
             txtBuscar.Name = "txtBuscar";
             txtBuscar.PlaceholderText = "Filtrar clientes...";
             txtBuscar.Size = new Size(232, 23);
@@ -59,7 +60,7 @@
             // txtID
             // 
             txtID.Enabled = false;
-            txtID.Location = new Point(411, 345);
+            txtID.Location = new Point(409, 385);
             txtID.Name = "txtID";
             txtID.Size = new Size(47, 23);
             txtID.TabIndex = 62;
@@ -67,7 +68,7 @@
             // 
             // txtDireccion
             // 
-            txtDireccion.Location = new Point(411, 286);
+            txtDireccion.Location = new Point(409, 326);
             txtDireccion.Name = "txtDireccion";
             txtDireccion.PlaceholderText = "Ingrese el direccion del cliente";
             txtDireccion.Size = new Size(170, 23);
@@ -75,7 +76,7 @@
             // 
             // txtTelefono
             // 
-            txtTelefono.Location = new Point(209, 345);
+            txtTelefono.Location = new Point(207, 385);
             txtTelefono.Name = "txtTelefono";
             txtTelefono.PlaceholderText = "Ingrese el telefono del cliente";
             txtTelefono.Size = new Size(170, 23);
@@ -83,7 +84,7 @@
             // 
             // txtCorreo
             // 
-            txtCorreo.Location = new Point(209, 286);
+            txtCorreo.Location = new Point(207, 326);
             txtCorreo.Name = "txtCorreo";
             txtCorreo.PlaceholderText = "Ingrese el correo del cliente";
             txtCorreo.Size = new Size(170, 23);
@@ -91,7 +92,7 @@
             // 
             // txtApellido
             // 
-            txtApellido.Location = new Point(15, 345);
+            txtApellido.Location = new Point(13, 385);
             txtApellido.Name = "txtApellido";
             txtApellido.PlaceholderText = "Ingrese el apellido del cliente";
             txtApellido.Size = new Size(170, 23);
@@ -99,7 +100,7 @@
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(14, 286);
+            txtNombre.Location = new Point(12, 326);
             txtNombre.Name = "txtNombre";
             txtNombre.PlaceholderText = "Ingrese el nombre del cliente";
             txtNombre.Size = new Size(171, 23);
@@ -109,7 +110,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 12F);
-            label5.Location = new Point(411, 262);
+            label5.Location = new Point(409, 302);
             label5.Name = "label5";
             label5.Size = new Size(75, 21);
             label5.TabIndex = 56;
@@ -119,7 +120,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F);
-            label4.Location = new Point(209, 321);
+            label4.Location = new Point(207, 361);
             label4.Name = "label4";
             label4.Size = new Size(141, 21);
             label4.TabIndex = 55;
@@ -129,7 +130,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F);
-            label3.Location = new Point(209, 262);
+            label3.Location = new Point(207, 302);
             label3.Name = "label3";
             label3.Size = new Size(138, 21);
             label3.TabIndex = 54;
@@ -139,7 +140,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F);
-            label2.Location = new Point(15, 321);
+            label2.Location = new Point(13, 361);
             label2.Name = "label2";
             label2.Size = new Size(141, 21);
             label2.TabIndex = 53;
@@ -149,7 +150,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F);
-            label1.Location = new Point(14, 262);
+            label1.Location = new Point(12, 302);
             label1.Name = "label1";
             label1.Size = new Size(142, 21);
             label1.TabIndex = 52;
@@ -157,7 +158,7 @@
             // 
             // btnEditar
             // 
-            btnEditar.Location = new Point(620, 305);
+            btnEditar.Location = new Point(618, 345);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(114, 37);
             btnEditar.TabIndex = 51;
@@ -167,7 +168,7 @@
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(620, 363);
+            btnEliminar.Location = new Point(618, 403);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(114, 37);
             btnEliminar.TabIndex = 50;
@@ -177,7 +178,7 @@
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(620, 247);
+            btnAgregar.Location = new Point(618, 287);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(114, 37);
             btnAgregar.TabIndex = 49;
@@ -188,18 +189,29 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(14, 40);
+            dataGridView1.Location = new Point(12, 80);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(720, 201);
             dataGridView1.TabIndex = 48;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
+            label10.Location = new Point(12, 9);
+            label10.Name = "label10";
+            label10.Size = new Size(201, 30);
+            label10.TabIndex = 93;
+            label10.Text = "Gestionar Clientes";
+            // 
             // Clientes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(749, 411);
+            ClientSize = new Size(749, 477);
+            Controls.Add(label10);
             Controls.Add(txtBuscar);
             Controls.Add(txtID);
             Controls.Add(txtDireccion);
@@ -242,5 +254,6 @@
         private Button btnEliminar;
         private Button btnAgregar;
         private DataGridView dataGridView1;
+        private Label label10;
     }
 }

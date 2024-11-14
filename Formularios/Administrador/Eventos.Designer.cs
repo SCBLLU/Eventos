@@ -166,6 +166,7 @@
             dateFin.Name = "dateFin";
             dateFin.Size = new Size(233, 23);
             dateFin.TabIndex = 80;
+            dateFin.Value = new DateTime(2024, 11, 14, 18, 30, 0, 0);
             // 
             // dateInicio
             // 
@@ -173,6 +174,7 @@
             dateInicio.Name = "dateInicio";
             dateInicio.Size = new Size(233, 23);
             dateInicio.TabIndex = 79;
+            dateInicio.Value = new DateTime(2024, 11, 14, 14, 30, 0, 0);
             // 
             // txtNombre
             // 
@@ -263,11 +265,12 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(12, 9);
+            label10.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
+            label10.Location = new Point(12, 5);
             label10.Name = "label10";
-            label10.Size = new Size(132, 15);
+            label10.Size = new Size(200, 30);
             label10.TabIndex = 92;
-            label10.Text = "Eventos Adminisstrador";
+            label10.Text = "Gestionar Eventos";
             // 
             // dataGridView1
             // 

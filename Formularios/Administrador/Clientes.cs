@@ -115,24 +115,6 @@ namespace Eventos.Formularios.Administrador
             }
         }
 
-        private void txtBuscar_TextChanged(object sender, EventArgs e)
-        {
-            string filtro = txtBuscar.Text.ToLower();
-            using (var bd = new EventosContext())
-            {
-                var clientes = bd.Clientes
-                    .Where(c => c.Nombre.ToLower().Contains(filtro) ||
-                                c.Apellido.ToLower().Contains(filtro) ||
-                                c.Email.ToLower().Contains(filtro) ||
-                                c.Telefono.ToLower().Contains(filtro) ||
-                                c.Direccion.ToLower().Contains(filtro))
-                    .ToList();
-                dataGridView1.DataSource = clientes;
-                dataGridView1.Columns["Eventos"].Visible = false;
-                dataGridView1.Columns["Facturas"].Visible = false;
-            }
-        }
-
         private void CargarClientes()
         {
             using (var bd = new EventosContext())
@@ -153,6 +135,24 @@ namespace Eventos.Formularios.Administrador
             txtCorreo.Text = "";
             txtTelefono.Text = "";
             txtDireccion.Text = "";
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            string filtro = txtBuscar.Text.ToLower();
+            using (var bd = new EventosContext())
+            {
+                var clientes = bd.Clientes
+                    .Where(c => c.Nombre.ToLower().Contains(filtro) ||
+                                c.Apellido.ToLower().Contains(filtro) ||
+                                c.Email.ToLower().Contains(filtro) ||
+                                c.Telefono.ToLower().Contains(filtro) ||
+                                c.Direccion.ToLower().Contains(filtro))
+                    .ToList();
+                dataGridView1.DataSource = clientes;
+                dataGridView1.Columns["Eventos"].Visible = false;
+                dataGridView1.Columns["Facturas"].Visible = false;
+            }
         }
     }
 }

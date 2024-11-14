@@ -66,11 +66,6 @@ namespace Eventos.Formularios.Administrador
         {
             CargarFormularios(new Paquetes());
         }
-
-        private void btnInformes_Click(object sender, EventArgs e)
-        {
-            CargarFormularios(new Informes());
-        }
         private void btnClientes_Click(object sender, EventArgs e)
         {
             CargarFormularios(new Clientes());

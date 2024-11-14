@@ -29,7 +29,13 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            groupBox1 = new GroupBox();
+            panel2 = new Panel();
+            btnEliminar = new Button();
+            btnEditar = new Button();
+            btnAgregar = new Button();
+            panel3 = new Panel();
+            txtBuscar = new TextBox();
+            dataGridView1 = new DataGridView();
             txtID = new TextBox();
             txtArticulos = new TextBox();
             txtDescripcion = new TextBox();
@@ -37,14 +43,8 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
-            panel2 = new Panel();
-            btnEliminar = new Button();
-            btnEditar = new Button();
-            btnAgregar = new Button();
-            panel3 = new Panel();
-            dataGridView1 = new DataGridView();
+            label10 = new Label();
             panel1.SuspendLayout();
-            groupBox1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -52,89 +52,19 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(groupBox1);
+            panel1.Controls.Add(label10);
+            panel1.Controls.Add(txtID);
+            panel1.Controls.Add(txtArticulos);
+            panel1.Controls.Add(txtDescripcion);
+            panel1.Controls.Add(txtNombre);
+            panel1.Controls.Add(label3);
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(239, 411);
             panel1.TabIndex = 0;
-            // 
-            // groupBox1
-            // 
-            groupBox1.Controls.Add(txtID);
-            groupBox1.Controls.Add(txtArticulos);
-            groupBox1.Controls.Add(txtDescripcion);
-            groupBox1.Controls.Add(txtNombre);
-            groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(label1);
-            groupBox1.Font = new Font("Segoe UI", 9F);
-            groupBox1.Location = new Point(12, 12);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(211, 381);
-            groupBox1.TabIndex = 0;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Gestion de Paquetes";
-            // 
-            // txtID
-            // 
-            txtID.Enabled = false;
-            txtID.Location = new Point(6, 352);
-            txtID.Name = "txtID";
-            txtID.Size = new Size(41, 23);
-            txtID.TabIndex = 6;
-            txtID.Visible = false;
-            // 
-            // txtArticulos
-            // 
-            txtArticulos.Location = new Point(6, 280);
-            txtArticulos.Name = "txtArticulos";
-            txtArticulos.Size = new Size(199, 23);
-            txtArticulos.TabIndex = 5;
-            // 
-            // txtDescripcion
-            // 
-            txtDescripcion.Location = new Point(6, 187);
-            txtDescripcion.Name = "txtDescripcion";
-            txtDescripcion.Size = new Size(199, 23);
-            txtDescripcion.TabIndex = 4;
-            // 
-            // txtNombre
-            // 
-            txtNombre.Location = new Point(6, 88);
-            txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(199, 23);
-            txtNombre.TabIndex = 3;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 12F);
-            label3.Location = new Point(6, 235);
-            label3.Name = "label3";
-            label3.Size = new Size(155, 21);
-            label3.TabIndex = 2;
-            label3.Text = "Articulos del Paquete";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 12F);
-            label2.Location = new Point(6, 141);
-            label2.Name = "label2";
-            label2.Size = new Size(91, 21);
-            label2.TabIndex = 1;
-            label2.Text = "Descripción";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F);
-            label1.Location = new Point(6, 47);
-            label1.Name = "label1";
-            label1.Size = new Size(152, 21);
-            label1.TabIndex = 0;
-            label1.Text = "Nombre del Paquete";
             // 
             // panel2
             // 
@@ -179,6 +109,7 @@
             // 
             // panel3
             // 
+            panel3.Controls.Add(txtBuscar);
             panel3.Controls.Add(dataGridView1);
             panel3.Dock = DockStyle.Fill;
             panel3.Location = new Point(239, 0);
@@ -186,16 +117,97 @@
             panel3.Size = new Size(510, 347);
             panel3.TabIndex = 2;
             // 
+            // txtBuscar
+            // 
+            txtBuscar.Location = new Point(6, 19);
+            txtBuscar.Name = "txtBuscar";
+            txtBuscar.PlaceholderText = "Filtrar paquetes...";
+            txtBuscar.Size = new Size(232, 23);
+            txtBuscar.TabIndex = 95;
+            txtBuscar.TextChanged += txtBuscar_TextChanged;
+            // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(0, 0);
+            dataGridView1.Location = new Point(0, 56);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(510, 347);
+            dataGridView1.Size = new Size(498, 291);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            // 
+            // txtID
+            // 
+            txtID.Enabled = false;
+            txtID.Location = new Point(12, 382);
+            txtID.Name = "txtID";
+            txtID.Size = new Size(41, 23);
+            txtID.TabIndex = 13;
+            txtID.Visible = false;
+            // 
+            // txtArticulos
+            // 
+            txtArticulos.Location = new Point(12, 310);
+            txtArticulos.Name = "txtArticulos";
+            txtArticulos.PlaceholderText = "Ingrese que contiene el paquete";
+            txtArticulos.Size = new Size(199, 23);
+            txtArticulos.TabIndex = 12;
+            // 
+            // txtDescripcion
+            // 
+            txtDescripcion.Location = new Point(12, 217);
+            txtDescripcion.Name = "txtDescripcion";
+            txtDescripcion.PlaceholderText = "Ingrese una descripcion corta";
+            txtDescripcion.Size = new Size(199, 23);
+            txtDescripcion.TabIndex = 11;
+            // 
+            // txtNombre
+            // 
+            txtNombre.Location = new Point(12, 118);
+            txtNombre.Name = "txtNombre";
+            txtNombre.PlaceholderText = "Ingrese el nombre del paquete";
+            txtNombre.Size = new Size(199, 23);
+            txtNombre.TabIndex = 10;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 12F);
+            label3.Location = new Point(12, 265);
+            label3.Name = "label3";
+            label3.Size = new Size(155, 21);
+            label3.TabIndex = 9;
+            label3.Text = "Articulos del Paquete";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F);
+            label2.Location = new Point(12, 171);
+            label2.Name = "label2";
+            label2.Size = new Size(91, 21);
+            label2.TabIndex = 8;
+            label2.Text = "Descripción";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12F);
+            label1.Location = new Point(12, 77);
+            label1.Name = "label1";
+            label1.Size = new Size(152, 21);
+            label1.TabIndex = 7;
+            label1.Text = "Nombre del Paquete";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
+            label10.Location = new Point(12, 12);
+            label10.Name = "label10";
+            label10.Size = new Size(214, 30);
+            label10.TabIndex = 94;
+            label10.Text = "Gestionar Paquetes";
             // 
             // Paquetes
             // 
@@ -209,10 +221,10 @@
             Text = "Paquetes";
             Load += Paquetes_Load;
             panel1.ResumeLayout(false);
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
+            panel1.PerformLayout();
             panel2.ResumeLayout(false);
             panel3.ResumeLayout(false);
+            panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
@@ -222,7 +234,11 @@
         private Panel panel1;
         private Panel panel2;
         private Panel panel3;
-        private GroupBox groupBox1;
+        private Button btnEliminar;
+        private Button btnEditar;
+        private Button btnAgregar;
+        private DataGridView dataGridView1;
+        private TextBox txtBuscar;
         private TextBox txtID;
         private TextBox txtArticulos;
         private TextBox txtDescripcion;
@@ -230,9 +246,6 @@
         private Label label3;
         private Label label2;
         private Label label1;
-        private Button btnEliminar;
-        private Button btnEditar;
-        private Button btnAgregar;
-        private DataGridView dataGridView1;
+        private Label label10;
     }
 }

@@ -44,6 +44,7 @@
             btnEliminar = new Button();
             btnEditar = new Button();
             btnCrear = new Button();
+            label10 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)inputMonto).BeginInit();
             SuspendLayout();
@@ -51,7 +52,7 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 46);
+            dataGridView1.Location = new Point(12, 79);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(725, 150);
@@ -60,7 +61,7 @@
             // 
             // txtBuscar
             // 
-            txtBuscar.Location = new Point(12, 12);
+            txtBuscar.Location = new Point(12, 45);
             txtBuscar.Name = "txtBuscar";
             txtBuscar.PlaceholderText = "Ingrese un valor para filtrar...";
             txtBuscar.Size = new Size(196, 23);
@@ -70,15 +71,16 @@
             // txtID
             // 
             txtID.Enabled = false;
-            txtID.Location = new Point(637, 213);
+            txtID.Location = new Point(637, 246);
             txtID.Name = "txtID";
             txtID.Size = new Size(100, 23);
             txtID.TabIndex = 2;
+            txtID.Visible = false;
             // 
             // comboEvento
             // 
             comboEvento.FormattingEnabled = true;
-            comboEvento.Location = new Point(12, 235);
+            comboEvento.Location = new Point(12, 268);
             comboEvento.Name = "comboEvento";
             comboEvento.Size = new Size(150, 23);
             comboEvento.TabIndex = 3;
@@ -86,22 +88,22 @@
             // comboCliente
             // 
             comboCliente.FormattingEnabled = true;
-            comboCliente.Location = new Point(12, 301);
+            comboCliente.Location = new Point(12, 334);
             comboCliente.Name = "comboCliente";
             comboCliente.Size = new Size(150, 23);
             comboCliente.TabIndex = 4;
             // 
             // dateFecha
             // 
-            dateFecha.Location = new Point(205, 235);
+            dateFecha.Location = new Point(205, 268);
             dateFecha.Name = "dateFecha";
             dateFecha.Size = new Size(233, 23);
             dateFecha.TabIndex = 5;
             // 
             // inputMonto
             // 
-            inputMonto.Location = new Point(12, 365);
-            inputMonto.Maximum = new decimal(new int[] { 3000, 0, 0, 0 });
+            inputMonto.Location = new Point(12, 398);
+            inputMonto.Maximum = new decimal(new int[] { 5000, 0, 0, 0 });
             inputMonto.Name = "inputMonto";
             inputMonto.Size = new Size(149, 23);
             inputMonto.TabIndex = 6;
@@ -109,7 +111,7 @@
             // comboEstado
             // 
             comboEstado.FormattingEnabled = true;
-            comboEstado.Location = new Point(205, 301);
+            comboEstado.Location = new Point(205, 334);
             comboEstado.Name = "comboEstado";
             comboEstado.Size = new Size(141, 23);
             comboEstado.TabIndex = 7;
@@ -118,7 +120,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F);
-            label1.Location = new Point(12, 211);
+            label1.Location = new Point(12, 244);
             label1.Name = "label1";
             label1.Size = new Size(150, 21);
             label1.TabIndex = 8;
@@ -128,7 +130,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F);
-            label2.Location = new Point(12, 277);
+            label2.Location = new Point(12, 310);
             label2.Name = "label2";
             label2.Size = new Size(151, 21);
             label2.TabIndex = 9;
@@ -138,7 +140,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F);
-            label3.Location = new Point(12, 341);
+            label3.Location = new Point(12, 374);
             label3.Name = "label3";
             label3.Size = new Size(149, 21);
             label3.TabIndex = 10;
@@ -148,7 +150,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F);
-            label4.Location = new Point(205, 211);
+            label4.Location = new Point(205, 244);
             label4.Name = "label4";
             label4.Size = new Size(141, 21);
             label4.TabIndex = 11;
@@ -158,7 +160,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 12F);
-            label5.Location = new Point(205, 277);
+            label5.Location = new Point(205, 310);
             label5.Name = "label5";
             label5.Size = new Size(149, 21);
             label5.TabIndex = 12;
@@ -166,7 +168,7 @@
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(625, 357);
+            btnEliminar.Location = new Point(625, 390);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(112, 42);
             btnEliminar.TabIndex = 13;
@@ -176,7 +178,7 @@
             // 
             // btnEditar
             // 
-            btnEditar.Location = new Point(625, 301);
+            btnEditar.Location = new Point(625, 334);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(112, 42);
             btnEditar.TabIndex = 14;
@@ -186,7 +188,7 @@
             // 
             // btnCrear
             // 
-            btnCrear.Location = new Point(625, 243);
+            btnCrear.Location = new Point(625, 276);
             btnCrear.Name = "btnCrear";
             btnCrear.Size = new Size(112, 42);
             btnCrear.TabIndex = 15;
@@ -194,11 +196,22 @@
             btnCrear.UseVisualStyleBackColor = true;
             btnCrear.Click += btnCrear_Click;
             // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
+            label10.Location = new Point(12, 9);
+            label10.Name = "label10";
+            label10.Size = new Size(205, 30);
+            label10.TabIndex = 94;
+            label10.Text = "Gestionar Facturas";
+            // 
             // Facturas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(749, 411);
+            ClientSize = new Size(749, 455);
+            Controls.Add(label10);
             Controls.Add(btnCrear);
             Controls.Add(btnEditar);
             Controls.Add(btnEliminar);
@@ -242,5 +255,6 @@
         private Button btnEliminar;
         private Button btnEditar;
         private Button btnCrear;
+        private Label label10;
     }
 }

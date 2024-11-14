@@ -181,6 +181,16 @@ namespace Eventos.Formularios.Empleado
                 comboEstado.DataSource = estadoFactura;
             }
         }
+                
+        private void LimpiarCampos()
+        {
+            txtID.Text = "";
+            comboEvento.SelectedIndex = 0;
+            comboCliente.SelectedIndex = 0;
+            inputMonto.Text = "";
+            dateFecha.Value = DateTime.Now;
+            comboEstado.SelectedIndex = 0;
+        }
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
@@ -212,16 +222,6 @@ namespace Eventos.Formularios.Empleado
                 dataGridView1.Columns["EventoId"].Visible = false;
                 dataGridView1.Columns["ClienteId"].Visible = false;
             }
-        }
-
-        private void LimpiarCampos()
-        {
-            txtID.Text = "";
-            comboEvento.SelectedIndex = 0;
-            comboCliente.SelectedIndex = 0;
-            inputMonto.Text = "";
-            dateFecha.Value = DateTime.Now;
-            comboEstado.SelectedIndex = 0;
         }
     }
 }
