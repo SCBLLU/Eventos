@@ -15,6 +15,7 @@ namespace Eventos.Formularios.Administrador
         public Menu()
         {
             InitializeComponent();
+            MiDiseño();
         }
 
         private void Menu_Load(object sender, EventArgs e)
@@ -73,6 +74,68 @@ namespace Eventos.Formularios.Administrador
             CargarFormularios(new Clientes());
         }
 
+        // Método para inicializar el diseño del formulario
+        private void MiDiseño()
+        {
+            panelsubmenureportes.Visible = false;
+        }
+
+        // Método para ocultar el submenú
+        private void hideSubMenu(Panel submenu)
+        {
+            if (panelsubmenureportes.Visible == true)
+                panelsubmenureportes.Visible = false;
+        }
+
+        // Método para mostrar el submenú
+        private void showSubMenu(Panel subMenu)
+        {
+            if (subMenu.Visible == false)
+            {
+                hideSubMenu(subMenu);
+                subMenu.Visible = true;
+            }
+            else
+                subMenu.Visible = false;
+        }
+
+        // Evento click para el botón de reportes
+        private void btnReportes_Click(object sender, EventArgs e)
+        {
+            showSubMenu(panelsubmenureportes);
+        }
+
+        // Eventos click para los reportes
+        private void repoEventos_Click(object sender, EventArgs e)
+        {
+            // Cargar el formulario de reportes de eventos
+            hideSubMenu(panelsubmenureportes);
+        }
+
+        private void repoEmpleados_Click(object sender, EventArgs e)
+        {
+            // Cargar el formulario de reportes de empleados
+            hideSubMenu(panelsubmenureportes);
+        }
+
+        private void repoSalas_Click(object sender, EventArgs e)
+        {
+            // Cargar el formulario de reportes de salas
+            hideSubMenu(panelsubmenureportes);
+        }
+
+        private void repoPaquetes_Click(object sender, EventArgs e)
+        {
+            // Cargar el formulario de reportes de paquetes
+            hideSubMenu(panelsubmenureportes);
+        }
+
+        private void repoClientes_Click(object sender, EventArgs e)
+        {
+            // Cargar el formulario de reportes de clientes
+            hideSubMenu(panelsubmenureportes);
+        }
+
         private void btnSalir_Click(object sender, EventArgs e)
         {
             // Cerrar la sesión y redirigir al formulario de inicio de sesión
@@ -81,6 +144,5 @@ namespace Eventos.Formularios.Administrador
             loginForm.ShowDialog();
             this.Close();
         }
-
     }
 }

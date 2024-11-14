@@ -38,9 +38,11 @@
             pictureBox1 = new PictureBox();
             panel1 = new Panel();
             Contenedor = new Panel();
+            label1 = new Label();
             MenuLateral.SuspendLayout();
             Logo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // MenuLateral
@@ -63,7 +65,7 @@
             btnFacturas.BackColor = Color.White;
             btnFacturas.Dock = DockStyle.Top;
             btnFacturas.FlatStyle = FlatStyle.Flat;
-            btnFacturas.Font = new Font("Segoe UI", 12F);
+            btnFacturas.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnFacturas.Location = new Point(0, 177);
             btnFacturas.Name = "btnFacturas";
             btnFacturas.Padding = new Padding(15, 0, 0, 0);
@@ -79,7 +81,7 @@
             btnClientes.BackColor = Color.White;
             btnClientes.Dock = DockStyle.Top;
             btnClientes.FlatStyle = FlatStyle.Flat;
-            btnClientes.Font = new Font("Segoe UI", 12F);
+            btnClientes.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnClientes.Location = new Point(0, 127);
             btnClientes.Name = "btnClientes";
             btnClientes.Padding = new Padding(15, 0, 0, 0);
@@ -95,7 +97,7 @@
             btnEventos.BackColor = Color.White;
             btnEventos.Dock = DockStyle.Top;
             btnEventos.FlatStyle = FlatStyle.Flat;
-            btnEventos.Font = new Font("Segoe UI", 12F);
+            btnEventos.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnEventos.Location = new Point(0, 77);
             btnEventos.Name = "btnEventos";
             btnEventos.Padding = new Padding(15, 0, 0, 0);
@@ -111,7 +113,7 @@
             btnSalir.BackColor = Color.White;
             btnSalir.Dock = DockStyle.Bottom;
             btnSalir.FlatStyle = FlatStyle.Flat;
-            btnSalir.Font = new Font("Segoe UI", 12F);
+            btnSalir.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnSalir.Location = new Point(0, 471);
             btnSalir.Name = "btnSalir";
             btnSalir.Padding = new Padding(15, 0, 0, 0);
@@ -145,7 +147,8 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.Silver;
+            panel1.BackColor = Color.White;
+            panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(194, 0);
             panel1.Name = "panel1";
@@ -160,6 +163,16 @@
             Contenedor.Name = "Contenedor";
             Contenedor.Size = new Size(760, 450);
             Contenedor.TabIndex = 4;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 24F, FontStyle.Bold);
+            label1.Location = new Point(6, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(290, 45);
+            label1.TabIndex = 5;
+            label1.Text = "Gestor de Eventos";
             // 
             // Menu
             // 
@@ -176,6 +189,8 @@
             MenuLateral.ResumeLayout(false);
             Logo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -190,5 +205,6 @@
         private PictureBox pictureBox1;
         private Panel Contenedor;
         private Button btnFacturas;
+        private Label label1;
     }
 }
