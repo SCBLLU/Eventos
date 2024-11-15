@@ -28,65 +28,84 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             label1 = new Label();
             label2 = new Label();
             InputUser = new TextBox();
             InputPassword = new TextBox();
             btnInicio = new Button();
+            label3 = new Label();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(292, 116);
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            label1.Location = new Point(292, 141);
             label1.Name = "label1";
-            label1.Size = new Size(47, 15);
+            label1.Size = new Size(69, 21);
             label1.TabIndex = 0;
             label1.Text = "Usuario";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(292, 185);
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            label2.Location = new Point(292, 200);
             label2.Name = "label2";
-            label2.Size = new Size(67, 15);
+            label2.Size = new Size(96, 21);
             label2.TabIndex = 1;
             label2.Text = "Contraseña";
             // 
             // InputUser
             // 
-            InputUser.Location = new Point(292, 134);
+            InputUser.Location = new Point(292, 165);
             InputUser.Name = "InputUser";
-            InputUser.Size = new Size(177, 23);
+            InputUser.PlaceholderText = "Ingrese su usuario";
+            InputUser.Size = new Size(180, 23);
             InputUser.TabIndex = 2;
             // 
             // InputPassword
             // 
-            InputPassword.Location = new Point(292, 203);
+            InputPassword.Location = new Point(292, 224);
             InputPassword.Name = "InputPassword";
-            InputPassword.Size = new Size(177, 23);
+            InputPassword.PlaceholderText = "Ingrese la contraseña";
+            InputPassword.Size = new Size(180, 23);
             InputPassword.TabIndex = 3;
             // 
             // btnInicio
             // 
-            btnInicio.Location = new Point(292, 288);
+            btnInicio.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnInicio.Location = new Point(292, 276);
             btnInicio.Name = "btnInicio";
-            btnInicio.Size = new Size(177, 32);
+            btnInicio.Size = new Size(180, 46);
             btnInicio.TabIndex = 4;
-            btnInicio.Text = "Iniciar Sesion";
+            btnInicio.Text = "Ingresar";
             btnInicio.UseVisualStyleBackColor = true;
             btnInicio.Click += btnInicio_Click;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 24F, FontStyle.Bold);
+            label3.Location = new Point(247, 64);
+            label3.Name = "label3";
+            label3.Size = new Size(250, 45);
+            label3.TabIndex = 5;
+            label3.Text = "Inicio de sesión\r\n";
             // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(749, 411);
+            Controls.Add(label3);
             Controls.Add(btnInicio);
             Controls.Add(InputPassword);
             Controls.Add(InputUser);
             Controls.Add(label2);
             Controls.Add(label1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Login";
             Text = "Login";
             Load += Login_Load;
@@ -101,5 +120,6 @@
         private TextBox InputUser;
         private TextBox InputPassword;
         private Button btnInicio;
+        private Label label3;
     }
 }

@@ -48,17 +48,26 @@
             panel1 = new Panel();
             label1 = new Label();
             Contenedor = new Panel();
+            label8 = new Label();
+            label7 = new Label();
+            label9 = new Label();
+            label6 = new Label();
+            label5 = new Label();
+            label4 = new Label();
+            label3 = new Label();
+            label2 = new Label();
             MenuLateral.SuspendLayout();
             panelsubmenureportes.SuspendLayout();
             Logo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
+            Contenedor.SuspendLayout();
             SuspendLayout();
             // 
             // MenuLateral
             // 
             MenuLateral.AutoScroll = true;
-            MenuLateral.BackColor = Color.DarkGray;
+            MenuLateral.BackColor = Color.Gainsboro;
             MenuLateral.Controls.Add(panelsubmenureportes);
             MenuLateral.Controls.Add(btnReportes);
             MenuLateral.Controls.Add(btnClientes);
@@ -310,21 +319,115 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 24F, FontStyle.Bold);
+            label1.Font = new Font("Segoe UI", 22F, FontStyle.Bold);
             label1.Location = new Point(6, 9);
             label1.Name = "label1";
-            label1.Size = new Size(290, 45);
+            label1.Size = new Size(270, 41);
             label1.TabIndex = 0;
             label1.Text = "Gestor de Eventos";
             // 
             // Contenedor
             // 
-            Contenedor.BackColor = Color.LightGray;
+            Contenedor.BackColor = Color.WhiteSmoke;
+            Contenedor.Controls.Add(label8);
+            Contenedor.Controls.Add(label7);
+            Contenedor.Controls.Add(label9);
+            Contenedor.Controls.Add(label6);
+            Contenedor.Controls.Add(label5);
+            Contenedor.Controls.Add(label4);
+            Contenedor.Controls.Add(label3);
+            Contenedor.Controls.Add(label2);
             Contenedor.Dock = DockStyle.Fill;
             Contenedor.Location = new Point(194, 71);
             Contenedor.Name = "Contenedor";
             Contenedor.Size = new Size(765, 450);
             Contenedor.TabIndex = 3;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 11F);
+            label8.Location = new Point(6, 166);
+            label8.Name = "label8";
+            label8.Padding = new Padding(20, 0, 0, 0);
+            label8.Size = new Size(400, 20);
+            label8.TabIndex = 8;
+            label8.Text = "5. Gestionar y asignar los eventos que se llevarán a cabo";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 11F);
+            label7.Location = new Point(6, 186);
+            label7.Name = "label7";
+            label7.Padding = new Padding(20, 0, 0, 0);
+            label7.Size = new Size(647, 20);
+            label7.TabIndex = 7;
+            label7.Text = "6. Generar y almacenar registros en PDF de todos los módulos para optimizar la organización";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 11F);
+            label9.Location = new Point(6, 146);
+            label9.Name = "label9";
+            label9.Padding = new Padding(20, 0, 0, 0);
+            label9.Size = new Size(548, 20);
+            label9.TabIndex = 5;
+            label9.Text = "4. Administrar a los empleados que utilizarán el sistema de gestión de eventos";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 11F);
+            label6.Location = new Point(6, 126);
+            label6.Name = "label6";
+            label6.Padding = new Padding(20, 0, 0, 0);
+            label6.Size = new Size(453, 20);
+            label6.TabIndex = 4;
+            label6.Text = "3. Administrar los espacios donde se llevarán a cabo los eventos";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 11F);
+            label5.Location = new Point(6, 106);
+            label5.Name = "label5";
+            label5.Padding = new Padding(20, 0, 0, 0);
+            label5.Size = new Size(509, 20);
+            label5.TabIndex = 3;
+            label5.Text = "2. Gestionar los paquetes que se utilizarán en la organización de eventos";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 11F);
+            label4.Location = new Point(6, 86);
+            label4.Name = "label4";
+            label4.Padding = new Padding(20, 0, 0, 0);
+            label4.Size = new Size(327, 20);
+            label4.TabIndex = 2;
+            label4.Text = "1. Gestionar los clientes que solicitan eventos\r\n";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 12F);
+            label3.Location = new Point(6, 56);
+            label3.Name = "label3";
+            label3.Size = new Size(230, 21);
+            label3.TabIndex = 1;
+            label3.Text = "Que puedo hacer en el sistema?";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 18F);
+            label2.Location = new Point(6, 6);
+            label2.Name = "label2";
+            label2.Size = new Size(530, 224);
+            label2.TabIndex = 0;
+            label2.Text = "¡Bienvenido/a al Sistema de Gestión de Eventos!\n\n\n\n\n\n\n";
             // 
             // Menu
             // 
@@ -334,6 +437,7 @@
             Controls.Add(Contenedor);
             Controls.Add(panel1);
             Controls.Add(MenuLateral);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MinimumSize = new Size(975, 560);
             Name = "Menu";
             Text = "Menu";
@@ -344,6 +448,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            Contenedor.ResumeLayout(false);
+            Contenedor.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -368,5 +474,13 @@
         private Button repoEmpleados;
         private Button repoEventos;
         private Label label1;
+        private Label label2;
+        private Label label7;
+        private Label label9;
+        private Label label6;
+        private Label label5;
+        private Label label4;
+        private Label label3;
+        private Label label8;
     }
 }
