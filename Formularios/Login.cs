@@ -43,7 +43,7 @@ namespace Eventos.Formularios
                     }
                     else if (user.Rol == "Empleado")
                     {
-                        var empleadoMenu = new Eventos.Formularios.Empleado.Menu();
+                        var empleadoMenu = new Eventos.Formularios.Empleado.Menu(user.EmpleadoId);
                         empleadoMenu.Show();
                     }
                     this.Hide();

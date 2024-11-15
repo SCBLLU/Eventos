@@ -12,9 +12,12 @@ namespace Eventos.Formularios.Empleado
 {
     public partial class Menu : Form
     {
-        public Menu()
+        private int empleadoIdEnSesion;
+
+        public Menu(int empleadoId)
         {
             InitializeComponent();
+            empleadoIdEnSesion = empleadoId; // Asignar el ID del empleado en sesión
         }
 
         private void Menu_Load(object sender, EventArgs e)
@@ -54,7 +57,7 @@ namespace Eventos.Formularios.Empleado
 
         private void btnEventos_Click(object sender, EventArgs e)
         {
-            CargarFormularios(new Eventos());
+            CargarFormularios(new Eventos(empleadoIdEnSesion)); // envia el id al formulario de eventos
         }
 
         private void btnClientes_Click(object sender, EventArgs e)

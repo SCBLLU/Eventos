@@ -97,6 +97,7 @@
             // comboEmpleadoID
             // 
             comboEmpleadoID.Cursor = Cursors.Hand;
+            comboEmpleadoID.Enabled = false;
             comboEmpleadoID.FormattingEnabled = true;
             comboEmpleadoID.Location = new Point(446, 321);
             comboEmpleadoID.Name = "comboEmpleadoID";

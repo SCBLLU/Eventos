@@ -22,11 +22,14 @@ namespace Eventos.Formularios.Empleado
         private List<Empleados> empleados;
         private List<Paquete> paquetes;
 
+        private int empleadoIdEnSesion; // recibe el ID del empleado en sesión
+
         CRUDEventos crudEventos = new CRUDEventos();
 
-        public Eventos()
+        public Eventos(int empleadoId)
         {
             InitializeComponent();
+            empleadoIdEnSesion = empleadoId; // Asignar el ID del empleado en sesión
         }
 
         private void Eventos_Load(object sender, EventArgs e)
@@ -151,6 +154,7 @@ namespace Eventos.Formularios.Empleado
             using (var contexto = new EventosContext())
             {
                 var eventos = contexto.Eventos
+                    .Where(e => e.EmpleadoId == empleadoIdEnSesion) // Filtrar por el ID del empleado en sesión
                     .Select(e => new
                     {
                         e.EventoId,
@@ -223,6 +227,9 @@ namespace Eventos.Formularios.Empleado
                 comboEmpleadoID.DataSource = empleados;
                 comboEmpleadoID.DisplayMember = "Nombre";
                 comboEmpleadoID.ValueMember = "EmpleadoId";
+
+                // Seleccionar el EmpleadoId del empleado en sesión
+                comboEmpleadoID.SelectedValue = empleadoIdEnSesion;
             }
         }
 
@@ -250,7 +257,7 @@ namespace Eventos.Formularios.Empleado
             txtDescripcion.Text = "";
             comboSalaID.SelectedIndex = 0;
             comboClienteID.SelectedIndex = 0;
-            comboEmpleadoID.SelectedIndex = 0;
+            comboEmpleadoID.SelectedValue = empleadoIdEnSesion;
             comboPaquetesID.SelectedIndex = 0;
             comboEstado.SelectedIndex = 0;
         }
