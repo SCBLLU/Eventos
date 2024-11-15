@@ -42,9 +42,9 @@ namespace Eventos.Formularios.Administrador
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 txtID.Text = dataGridView1.CurrentRow.Cells["EventoId"].Value.ToString();
-                txtNombre.Text = dataGridView1.CurrentRow.Cells["NombreEvento"].Value.ToString();
-                dateInicio.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells["FechaInicio"].Value.ToString());
-                dateFin.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells["FechaFin"].Value.ToString());
+                txtNombre.Text = dataGridView1.CurrentRow.Cells["Evento"].Value.ToString();
+                dateInicio.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells["Inicio"].Value.ToString());
+                dateFin.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells["Fin"].Value.ToString());
                 txtDescripcion.Text = dataGridView1.CurrentRow.Cells["Descripcion"].Value.ToString();
                 comboEstado.Text = dataGridView1.CurrentRow.Cells["Estado"].Value.ToString();
                 comboSalaID.SelectedValue = dataGridView1.CurrentRow.Cells["SalaId"].Value;
@@ -152,9 +152,9 @@ namespace Eventos.Formularios.Administrador
                     .Select(e => new
                     {
                         e.EventoId,
-                        e.NombreEvento,
-                        e.FechaInicio,
-                        e.FechaFin,
+                        Evento = e.NombreEvento,
+                        Inicio = e.FechaInicio.Date,
+                        Fin = e.FechaFin.Date,
                         e.Descripcion,
 
                         SalaId = e.Sala.SalaId,
