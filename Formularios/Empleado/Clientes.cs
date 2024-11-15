@@ -51,18 +51,25 @@ namespace Eventos.Formularios.Empleado
             DialogResult dialogResult = MessageBox.Show("¿Está seguro de que desea crear este cliente?", "Crear Cliente", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                var cliente = new Modelos.Cliente
+                try
                 {
-                    Nombre = txtNombre.Text,
-                    Apellido = txtApellido.Text,
-                    Email = txtCorreo.Text,
-                    Telefono = txtTelefono.Text,
-                    Direccion = txtDireccion.Text
-                };
+                    var cliente = new Modelos.Cliente
+                    {
+                        Nombre = txtNombre.Text,
+                        Apellido = txtApellido.Text,
+                        Email = txtCorreo.Text,
+                        Telefono = txtTelefono.Text,
+                        Direccion = txtDireccion.Text
+                    };
 
-                crudClientes.CrearCliente(cliente);
-                CargarClientes();
-                LimpiarCampos();
+                    crudClientes.CrearCliente(cliente);
+                    CargarClientes();
+                    LimpiarCampos();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -104,14 +111,21 @@ namespace Eventos.Formularios.Empleado
             DialogResult dialogResult = MessageBox.Show("¿Está seguro de que desea eliminar este cliente?", "Eliminar Cliente", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                var cliente = new Modelos.Cliente
+                try
                 {
-                    ClienteId = int.Parse(txtID.Text)
-                };
+                    var cliente = new Modelos.Cliente
+                    {
+                        ClienteId = int.Parse(txtID.Text)
+                    };
 
-                crudClientes.EliminarCliente(cliente);
-                CargarClientes();
-                LimpiarCampos();
+                    crudClientes.EliminarCliente(cliente);
+                    CargarClientes();
+                    LimpiarCampos();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

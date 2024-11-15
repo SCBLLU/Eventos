@@ -57,18 +57,25 @@ namespace Eventos.Formularios.Empleado
             DialogResult dialogResult = MessageBox.Show("¿Está seguro de que desea crear esta factura?", "Crear Factura", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                var factura = new Modelos.Factura
+                try
                 {
-                    EventoId = (int)comboEvento.SelectedValue,
-                    ClienteId = (int)comboCliente.SelectedValue,
-                    MontoTotal = decimal.Parse(inputMonto.Text),
-                    FechaFactura = dateFecha.Value,
-                    Estado = comboEstado.SelectedValue.ToString()
-                };
+                    var factura = new Modelos.Factura
+                    {
+                        EventoId = (int)comboEvento.SelectedValue,
+                        ClienteId = (int)comboCliente.SelectedValue,
+                        MontoTotal = decimal.Parse(inputMonto.Text),
+                        FechaFactura = dateFecha.Value,
+                        Estado = comboEstado.SelectedValue.ToString()
+                    };
 
-                crudFacturas.CrearFactura(factura);
-                CargarFacturas();
-                LimpiarCampos();
+                    crudFacturas.CrearFactura(factura);
+                    CargarFacturas();
+                    LimpiarCampos();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -181,7 +188,7 @@ namespace Eventos.Formularios.Empleado
                 comboEstado.DataSource = estadoFactura;
             }
         }
-                
+
         private void LimpiarCampos()
         {
             txtID.Text = "";

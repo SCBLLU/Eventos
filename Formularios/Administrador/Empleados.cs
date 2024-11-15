@@ -55,20 +55,27 @@ namespace Eventos.Formularios.Administrador
             DialogResult dialogResult = MessageBox.Show("¿Está seguro de que desea crear este empleado?", "Crear Empleado", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                var empleado = new Modelos.Empleado
+                try
                 {
-                    Nombre = txtNombre.Text,
-                    Apellido = txtApellido.Text,
-                    Rol = cmbRol.Text,
-                    Email = txtCorreo.Text,
-                    Telefono = txtTelefono.Text,
-                    NombreUsuario = txtUsuario.Text,
-                    Contraseña = txtContraseña.Text
-                };
+                    var empleado = new Modelos.Empleado
+                    {
+                        Nombre = txtNombre.Text,
+                        Apellido = txtApellido.Text,
+                        Rol = cmbRol.Text,
+                        Email = txtCorreo.Text,
+                        Telefono = txtTelefono.Text,
+                        NombreUsuario = txtUsuario.Text,
+                        Contraseña = txtContraseña.Text
+                    };
 
-                crudEmpleados.CrearEmpleado(empleado);
-                CargarEmpleados();
-                LimpiarCampos();
+                    crudEmpleados.CrearEmpleado(empleado);
+                    CargarEmpleados();
+                    LimpiarCampos();
+                }
+                catch (InvalidOperationException ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -112,14 +119,21 @@ namespace Eventos.Formularios.Administrador
             DialogResult dialogResult = MessageBox.Show("¿Está seguro de que desea eliminar este empleado?", "Eliminar Empleado", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                var empleado = new Modelos.Empleado
+                try
                 {
-                    EmpleadoId = int.Parse(txtID.Text)
-                };
+                    var empleado = new Modelos.Empleado
+                    {
+                        EmpleadoId = int.Parse(txtID.Text)
+                    };
 
-                crudEmpleados.EliminarEmpleado(empleado);
-                CargarEmpleados();
-                LimpiarCampos();
+                    crudEmpleados.EliminarEmpleado(empleado);
+                    CargarEmpleados();
+                    LimpiarCampos();
+                }
+                catch (InvalidOperationException ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

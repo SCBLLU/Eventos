@@ -80,6 +80,9 @@ CREATE TABLE Facturas (
 );
 GO
 
--- Inserción de un Administrador
+-- Inserción de un Administrador y un Empleado de ejemplo
 INSERT INTO Empleados (Nombre, Apellido, Rol, Email, Telefono, NombreUsuario, Contraseña)
-VALUES ('Juan', 'Perez', 'Administrador', 'juan@gmail.com', '12345678', 'juan', '1234');
+VALUES 
+('Juan', 'Perez', 'Administrador', 'juan@gmail.com', '12345678', 'juan', '1234'),
+('Raul', 'Gimenez', 'Empleado', 'raul@gmail.com', '12345678', 'raul', '1234');
+

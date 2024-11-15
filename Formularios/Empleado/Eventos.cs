@@ -67,22 +67,29 @@ namespace Eventos.Formularios.Empleado
             DialogResult dialogResult = MessageBox.Show("¿Está seguro de que desea crear este evento?", "Crear Evento", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                var evento = new Evento
+                try
                 {
-                    NombreEvento = txtNombre.Text,
-                    FechaInicio = dateInicio.Value,
-                    FechaFin = dateFin.Value,
-                    Descripcion = txtDescripcion.Text,
-                    SalaId = (int)comboSalaID.SelectedValue,
-                    ClienteId = (int)comboClienteID.SelectedValue,
-                    EmpleadoId = (int)comboEmpleadoID.SelectedValue,
-                    PaqueteId = (int)comboPaquetesID.SelectedValue,
-                    Estado = comboEstado.Text
-                };
+                    var evento = new Evento
+                    {
+                        NombreEvento = txtNombre.Text,
+                        FechaInicio = dateInicio.Value,
+                        FechaFin = dateFin.Value,
+                        Descripcion = txtDescripcion.Text,
+                        SalaId = (int)comboSalaID.SelectedValue,
+                        ClienteId = (int)comboClienteID.SelectedValue,
+                        EmpleadoId = (int)comboEmpleadoID.SelectedValue,
+                        PaqueteId = (int)comboPaquetesID.SelectedValue,
+                        Estado = comboEstado.Text
+                    };
 
-                crudEventos.CrearEvento(evento);
-                CargarEventos();
-                LimpiarCampos();
+                    crudEventos.CrearEvento(evento);
+                    CargarEventos();
+                    LimpiarCampos();
+                }
+                catch (InvalidOperationException ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -241,11 +248,11 @@ namespace Eventos.Formularios.Empleado
             dateInicio.Value = DateTime.Now;
             dateFin.Value = DateTime.Now;
             txtDescripcion.Text = "";
-            comboEstado.Text = "";
             comboSalaID.SelectedIndex = 0;
             comboClienteID.SelectedIndex = 0;
             comboEmpleadoID.SelectedIndex = 0;
             comboPaquetesID.SelectedIndex = 0;
+            comboEstado.SelectedIndex = 0;
         }
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)

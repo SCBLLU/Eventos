@@ -1,4 +1,5 @@
 ﻿using Eventos.Modelos;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,12 @@ namespace Eventos.Clases
         {
             using (var bd = new EventosContext())
             {
+                var clienteExistente = bd.Clientes.SingleOrDefault(cliente => cliente.Email == c.Email);
+                if (clienteExistente != null)
+                {
+                    throw new InvalidOperationException("Ya existe un cliente con este correo electrónico.");
+                }
+
                 bd.Clientes.Add(c);
                 bd.SaveChanges();
             }
@@ -22,7 +29,13 @@ namespace Eventos.Clases
         {
             using (var bd = new EventosContext())
             {
-                var cliente = bd.Clientes.Find(c.ClienteId);
+                var cliente = bd.Clientes.Include(cl => cl.Eventos).FirstOrDefault(cl => cl.ClienteId == c.ClienteId);
+
+                if (cliente.Eventos.Any())
+                {
+                    throw new Exception("No se puede eliminar el cliente porque está asociado a uno o más eventos.");
+                }
+
                 bd.Clientes.Remove(cliente);
                 bd.SaveChanges();
             }

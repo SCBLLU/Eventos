@@ -185,6 +185,7 @@
             dateFin.Name = "dateFin";
             dateFin.Size = new Size(233, 23);
             dateFin.TabIndex = 105;
+            dateFin.Value = new DateTime(2024, 11, 14, 18, 30, 0, 0);
             // 
             // dateInicio
             // 
@@ -192,6 +193,7 @@
             dateInicio.Name = "dateInicio";
             dateInicio.Size = new Size(233, 23);
             dateInicio.TabIndex = 104;
+            dateInicio.Value = new DateTime(2024, 11, 14, 14, 20, 0, 0);
             // 
             // txtNombre
             // 

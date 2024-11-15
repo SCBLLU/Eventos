@@ -51,16 +51,23 @@ namespace Eventos.Formularios.Administrador
             DialogResult dialogResult = MessageBox.Show("¿Está seguro de que desea crear esta sala?", "Crear Sala", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                var sala = new Sala
+                try
                 {
-                    NombreSala = txtNombre.Text,
-                    Capacidad = (int)numCapacidad.Value,
-                    Ubicacion = txtUbicacion.Text,
-                    Caracteristicas = txtCaracteristicas.Text
-                };
-                crudSalas.CrearSala(sala);
-                CargarSalas();
-                limpiarCampos();
+                    var sala = new Sala
+                    {
+                        NombreSala = txtNombre.Text,
+                        Capacidad = (int)numCapacidad.Value,
+                        Ubicacion = txtUbicacion.Text,
+                        Caracteristicas = txtCaracteristicas.Text
+                    };
+                    crudSalas.CrearSala(sala);
+                    CargarSalas();
+                    limpiarCampos();
+                }
+                catch (InvalidOperationException ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -100,17 +107,24 @@ namespace Eventos.Formularios.Administrador
             DialogResult dialogResult = MessageBox.Show("¿Está seguro de que desea eliminar esta sala?", "Eliminar Sala", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                var sala = new Sala
+                try
                 {
-                    SalaId = int.Parse(txtID.Text),
-                    NombreSala = txtNombre.Text,
-                    Capacidad = (int)numCapacidad.Value,
-                    Ubicacion = txtUbicacion.Text,
-                    Caracteristicas = txtCaracteristicas.Text
-                };
-                crudSalas.EliminarSala(sala);
-                CargarSalas();
-                limpiarCampos();
+                    var sala = new Sala
+                    {
+                        SalaId = int.Parse(txtID.Text),
+                        NombreSala = txtNombre.Text,
+                        Capacidad = (int)numCapacidad.Value,
+                        Ubicacion = txtUbicacion.Text,
+                        Caracteristicas = txtCaracteristicas.Text
+                    };
+                    crudSalas.EliminarSala(sala);
+                    CargarSalas();
+                    limpiarCampos();
+                }
+                catch (InvalidOperationException ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

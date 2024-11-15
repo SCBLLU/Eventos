@@ -13,6 +13,15 @@ namespace Eventos.Clases
         {
             using (var bd = new EventosContext())
             {
+                var salaExistente = bd.Salas.FirstOrDefault(sala => sala.NombreSala == s.NombreSala);
+                if (salaExistente != null)
+                {
+                    throw new InvalidOperationException("Ya existe una sala con el mismo nombre.");
+                }
+                if (s.Capacidad <= 0)
+                {
+                    throw new InvalidOperationException("La capacidad debe ser mayor que cero.");
+                }
                 bd.Salas.Add(s);
                 bd.SaveChanges();
             }
@@ -23,7 +32,10 @@ namespace Eventos.Clases
             using (var bd = new EventosContext())
             {
                 var eventosRelacionados = bd.Eventos.Where(e => e.SalaId == s.SalaId).ToList();
-                bd.Eventos.RemoveRange(eventosRelacionados);
+                if (eventosRelacionados.Any())
+                {
+                    throw new InvalidOperationException("No se puede eliminar la sala porque hay eventos relacionados.");
+                }
                 bd.Salas.Remove(s);
                 bd.SaveChanges();
             }

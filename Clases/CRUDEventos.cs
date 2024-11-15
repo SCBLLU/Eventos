@@ -13,6 +13,16 @@ namespace Eventos.Clases
         {
             using (var bd = new EventosContext())
             {
+                if (bd.Eventos.Any(ev => ev.NombreEvento == e.NombreEvento))
+                {
+                    throw new InvalidOperationException("Ya existe un evento con este nombre.");
+                }
+
+                if (e.FechaFin < e.FechaInicio)
+                {
+                    throw new InvalidOperationException("La fecha de fin debe ser mayor o igual a la fecha de inicio.");
+                }
+
                 bd.Eventos.Add(e);
                 bd.SaveChanges();
             }

@@ -57,9 +57,16 @@ namespace Eventos.Formularios.Administrador
                     Articulos = txtArticulos.Text
                 };
 
-                crudPaquetes.CrearPaquete(paquete);
-                CargarPaquetes();
-                LimpiarCampos();
+                try
+                {
+                    crudPaquetes.CrearPaquete(paquete);
+                    CargarPaquetes();
+                    LimpiarCampos();
+                }
+                catch (InvalidOperationException ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -104,9 +111,16 @@ namespace Eventos.Formularios.Administrador
                     PaqueteId = int.Parse(txtID.Text)
                 };
 
-                crudPaquetes.EliminarPaquete(paquete);
-                CargarPaquetes();
-                LimpiarCampos();
+                try
+                {
+                    crudPaquetes.EliminarPaquete(paquete);
+                    CargarPaquetes();
+                    LimpiarCampos();
+                }
+                catch (InvalidOperationException ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

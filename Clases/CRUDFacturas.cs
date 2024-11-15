@@ -11,6 +11,11 @@ namespace Eventos.Clases
     {
         public void CrearFactura(Factura f)
         {
+            if (f.MontoTotal <= 0)
+            {
+                throw new ArgumentException("MontoTotal debe ser mayor que cero.");
+            }
+
             using (var bd = new EventosContext())
             {
                 bd.Facturas.Add(f);
